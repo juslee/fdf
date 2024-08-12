@@ -6,14 +6,14 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 17:36:06 by welee             #+#    #+#             */
-/*   Updated: 2024/08/11 21:08:29 by welee            ###   ########.fr       */
+/*   Updated: 2024/08/12 19:08:51 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FDF_H
 # define FDF_H
 
-# include "map.h"
+# include "parser.h"
 # include "utils.h"
 # include "mlx.h"
 # include "libft.h"
@@ -37,7 +37,6 @@ typedef struct s_fdf
 }	t_fdf;
 
 // Function prototypes
-t_map	*parse_map(const char *file);
 t_fdf	*init_fdf(t_map *map);
 void	render(t_fdf *fdf);
 void	hook_events(t_fdf *fdf);
