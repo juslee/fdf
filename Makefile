@@ -6,7 +6,7 @@
 #    By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/01 14:31:18 by welee             #+#    #+#              #
-#    Updated: 2024/08/11 21:03:06 by welee            ###   ########.fr        #
+#    Updated: 2024/08/13 14:36:17 by welee            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,18 +27,18 @@ LIBS_DIR = libs
 PUBL_DIR = public
 
 # Detect OS and set OS-specific flags
-UNAME_S := $(shell uname -s)
-ifeq ($(UNAME_S),Darwin)
-	MLX_DIR = $(LIBS_DIR)/minilibx_macos
-	MLX = $(MLX_DIR)/libmlx.a
-	MLX_LIB = -L$(MLX_DIR) -lmlx -framework OpenGL -framework AppKit
-	MLX_INC = $(MLX_DIR)
-else ifeq ($(UNAME_S),Linux)
+# UNAME_S := $(shell uname -s)
+# ifeq ($(UNAME_S),Darwin)
+# 	MLX_DIR = $(LIBS_DIR)/minilibx_macos
+# 	MLX = $(MLX_DIR)/libmlx.a
+# 	MLX_LIB = -L$(MLX_DIR) -lmlx -framework OpenGL -framework AppKit
+# 	MLX_INC = $(MLX_DIR)
+# else ifeq ($(UNAME_S),Linux)
 	MLX_DIR = $(LIBS_DIR)/minilibx-linux
 	MLX = $(MLX_DIR)/libmlx.a
 	MLX_LIB = -L$(MLX_DIR) -lmlx -L/usr/X11/include/../lib -lXext -lX11 -lm
 	MLX_INC = $(MLX_DIR)
-endif
+# endif
 
 LIBFT_DIR = $(LIBS_DIR)/libft
 LIBFT = $(LIBFT_DIR)/bin/libft.a
@@ -56,7 +56,7 @@ FT_PRINTF_LIB = -L$(FT_PRINTF_DIR)/bin -lftprintf
 FT_PRINTF_INC = $(FT_PRINTF_DIR)/includes
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -I$(INCS_DIR) -I$(LIBFT_INC) -I$(GET_NEXT_LINE_INC) -I$(FT_PRINTF_INC) -I$(MLX_INC)
+CFLAGS = -Wall -Wextra -g -I$(INCS_DIR) -I$(LIBFT_INC) -I$(GET_NEXT_LINE_INC) -I$(FT_PRINTF_INC) -I$(MLX_INC)
 RM = rm -f
 MKDIR = mkdir -p
 

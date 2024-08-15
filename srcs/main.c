@@ -6,35 +6,32 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 16:54:52 by welee             #+#    #+#             */
-/*   Updated: 2024/08/11 21:52:49 by welee            ###   ########.fr       */
+/*   Updated: 2024/08/14 19:20:42 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
-#include <stdio.h>
+#include "render.h"
 
 int	main(int argc, char **argv)
 {
-	t_map	*map;
-	// t_fdf	*fdf;
+	t_map	map;
+	t_fdf	fdf;
 
+	fdf.width = WIN_WIDTH;
+	fdf.height = WIN_HEIGHT;
 	if (argc < 2 || argc > 4)
-	{
-		ft_printf("Usage : %s <filename> [ case_size z_size ]\n", argv[0]);
+		return (
+			ft_printf("Usage : %s <filename> [ case_size z_size ]\n", argv[0]),
+			EXIT_FAILURE);
+	if (!parse_map(argv[1], &map))
 		return (EXIT_FAILURE);
-	}
-	map = parse_map(argv[1]);
-	if (!map)
+	if (!init(&fdf, &map))
 		return (EXIT_FAILURE);
-	// fdf = init_fdf(map);
-	// if (!fdf)
-	// {
-	// 	free_map(map);
-	// 	ft_printf("Error: Failed to initialize fdf");
-	// 	return (EXIT_FAILURE);
-	// }
-	// render(fdf);
+	mlx_loop_hook(fdf.mlx, render, &fdf);
+	mlx_loop(fdf.mlx);
+	// render(&fdf);
 	// hook_events(fdf);
 	// cleanup(fdf);
-	return (0);
+	return (free_map(&map), EXIT_SUCCESS);
 }

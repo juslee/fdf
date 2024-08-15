@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   render_map.c                                       :+:      :+:    :+:   */
+/*   put_pixel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/11 13:40:45 by welee             #+#    #+#             */
-/*   Updated: 2024/08/11 13:41:32 by welee            ###   ########.fr       */
+/*   Created: 2024/08/15 10:05:32 by welee             #+#    #+#             */
+/*   Updated: 2024/08/15 14:33:20 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "map.h"
-#include "mlx.h"
+#include "fdf.h"
 
-void	render_map(void *mlx_ptr, void *win_ptr, t_map *map)
+void	put_pixel(t_image *img, t_point p, int color, double brightness)
 {
-	int	x;
-	int	y;
+	char	*pixel;
+	int		r;
+	int		g;
+	int		b;
 
-	y = 0;
-	while (y < map->height)
-	{
-		x = 0;
-		while (x < map->width)
-		{
-			mlx_pixel_put(mlx_ptr, win_ptr, x * 10, y * 10, 0xFFFFFF);
-			x++;
-		}
-		y++;
-	}
+	pixel = img->addr
+		+ (p.y * img->line_length + p.x * (img->bits_per_pixel / 8));
+	r = ((color >> 16) & 0xFF) * brightness;
+	g = ((color >> 8) & 0xFF) * brightness;
+	b = (color & 0xFF) * brightness;
+	*(unsigned int *)pixel = (r << 16) | (g << 8) | b;
 }

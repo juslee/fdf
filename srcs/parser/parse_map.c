@@ -6,7 +6,7 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 13:37:04 by welee             #+#    #+#             */
-/*   Updated: 2024/08/12 19:08:27 by welee            ###   ########.fr       */
+/*   Updated: 2024/08/13 12:34:18 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,7 @@ static int	get_width(const char *line)
 		free(split[width]);
 		width++;
 	}
-	free(split);
-	return (width);
+	return (free(split), width);
 }
 
 static int	fill_z_matrix(int *z_line, char *line)
@@ -50,8 +49,7 @@ static int	fill_z_matrix(int *z_line, char *line)
 		free(split[i]);
 		i++;
 	}
-	free(split);
-	return (1);
+	return (free(split), 1);
 }
 
 static int	parse_lines(t_map *map, int fd)
@@ -65,8 +63,15 @@ static int	parse_lines(t_map *map, int fd)
 	{
 		map->z_matrix[i] = malloc(sizeof(int) * map->width);
 		if (!map->z_matrix[i] || !fill_z_matrix(map->z_matrix[i], line))
-			return (ft_printf("Error: Failed to parse z_matrix\n"),
-				free(line), 0);
+		{
+			free(line);
+			while (i > 0)
+			{
+				i--;
+				free(map->z_matrix[i]);
+			}
+			return (0);
+		}
 		free(line);
 		i++;
 		line = get_next_line(fd);
@@ -88,36 +93,31 @@ static int	handle_line(t_map *map, int fd)
 		if (map->width == -1)
 			map->width = current_width;
 		else if (current_width != map->width)
-			return (ft_printf("Found wrong line length. Exiting.\n"),
-				free(line), 0);
+			return (free(line), 0);
 		map->height++;
 		free(line);
 		line = get_next_line(fd);
 	}
-	return (free(line), 1);
+	return (1);
 }
 
-t_map	*parse_map(const char *filename)
+int	parse_map(const char *filename, t_map *map)
 {
-	t_map	*map;
-	int		fd;
+	int	fd;
 
 	fd = open(filename, O_RDONLY);
 	if (fd < 0)
-		return (ft_printf("No file %s\n", filename), NULL);
-	map = (t_map *)malloc(sizeof(t_map));
-	if (!map)
-		return (ft_printf("Memory allocation failed", errno), NULL);
-	if (handle_line(map, fd) == 0)
-		return (close(fd), free(map), NULL);
+		return (ft_printf("No file %s\n", filename), 0);
+	if (!handle_line(map, fd))
+		return (ft_printf("Found wrong line length. Exiting.\n"), close(fd), 0);
 	close(fd);
 	if (map->height == 0 || map->width == 0)
-		return (free(map), ft_printf("No data found. \n"), NULL);
+		return (ft_printf("No data found.\n"), 0);
 	map->z_matrix = malloc(sizeof(int *) * map->height);
 	if (!map->z_matrix)
-		return (free(map), ft_printf("Memory allocation failed"), NULL);
+		return (ft_printf("Memory allocation failed\n"), 0);
 	fd = open(filename, O_RDONLY);
-	if (!parse_lines(map, fd))
-		return (close(fd), free_map(map), NULL);
-	return (close(fd), map);
+	if (fd < 0 || !parse_lines(map, fd))
+		return (ft_printf("Error: Failed to parse z_matrix\n"), close(fd), 0);
+	return (close(fd), 1);
 }

@@ -1,19 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   handle_error.c                                     :+:      :+:    :+:   */
+/*   isometric.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/11 13:42:13 by welee             #+#    #+#             */
-/*   Updated: 2024/08/14 19:22:16 by welee            ###   ########.fr       */
+/*   Created: 2024/08/15 15:09:42 by welee             #+#    #+#             */
+/*   Updated: 2024/08/15 15:13:11 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include "libft.h"
+#include "fdf.h"
+#include <math.h>
 
-void	handle_error(char *message)
+t_point	isometric_projection(int x, int y, int z)
 {
-	ft_putendl_fd(message, STDERR_FILENO);
+	t_point	result;
+	double	angle;
+
+	angle = M_PI / 60;
+	result.x = (x - y) * cos(angle);
+	result.y = (x + y) * sin(angle) - z;
+	return (result);
 }

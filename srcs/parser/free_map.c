@@ -6,7 +6,7 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 18:53:14 by welee             #+#    #+#             */
-/*   Updated: 2024/08/12 18:54:00 by welee            ###   ########.fr       */
+/*   Updated: 2024/08/13 10:59:38 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,15 @@ void	free_map(t_map *map)
 
 	if (!map)
 		return ;
-	i = 0;
-	while (i < map->height)
+	if (map->z_matrix)
 	{
-		free(map->z_matrix[i]);
-		i++;
+		i = 0;
+		while (i < map->height)
+		{
+			free(map->z_matrix[i]);
+			i++;
+		}
+		free(map->z_matrix);
 	}
-	free(map->z_matrix);
 	free(map);
 }
