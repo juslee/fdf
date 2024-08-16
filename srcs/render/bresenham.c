@@ -6,7 +6,7 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 14:38:56 by welee             #+#    #+#             */
-/*   Updated: 2024/08/15 18:24:31 by welee            ###   ########.fr       */
+/*   Updated: 2024/08/17 00:09:30 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,22 +34,25 @@ void	bresenham_line(t_image *img, t_point start, t_point end, int color)
 	t_point		p;
 	int			err2;
 
-	init_bresenham(&b, start, end);
-	p = start;
-	while (p.x != end.x || p.y != end.y)
+	if (cohen_sutherland_clip(&start, &end))
 	{
-		put_pixel(img, p, color, 1.0);
-		err2 = 2 * b.err;
-		if (err2 > -b.dy)
+		init_bresenham(&b, start, end);
+		p = start;
+		while (p.x != end.x || p.y != end.y)
 		{
-			b.err -= b.dy;
-			p.x += b.sx;
+			put_pixel(img, p, color, 1.0);
+			err2 = 2 * b.err;
+			if (err2 > -b.dy)
+			{
+				b.err -= b.dy;
+				p.x += b.sx;
+			}
+			if (err2 < b.dx)
+			{
+				b.err += b.dx;
+				p.y += b.sy;
+			}
 		}
-		if (err2 < b.dx)
-		{
-			b.err += b.dx;
-			p.y += b.sy;
-		}
+		put_pixel(img, end, color, 1.0);
 	}
-	put_pixel(img, end, color, 1.0);
 }

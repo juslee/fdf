@@ -6,7 +6,7 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 13:40:45 by welee             #+#    #+#             */
-/*   Updated: 2024/08/15 20:16:07 by welee            ###   ########.fr       */
+/*   Updated: 2024/08/17 01:35:31 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,35 +43,44 @@ static t_point	isometric_projection(int x, int y, int z)
 }
 #include <stdio.h>
 
-void	draw_map(t_image *img, t_map *map, int scale)
+void	draw_map(t_image *img, t_map *map, int scale, int offset_x, int offset_y)
 {
 	t_point	start;
 	t_point	end;
+	int		y;
+	int		x;
+	int		z;
+	int		next_z;
 
-	for (int y = 0; y < map->height; y++)
+	y = 0;
+	while (y < map->height)
 	{
-		for (int x = 0; x < map->width; x++)
+		x = 0;
+		while (x < map->width)
 		{
-			printf("x: %d, y: %d\n", x, y);
-			int z = map->z_matrix[y][x];
-			printf("z: %d\n", z);
+			z = map->z_matrix[y][x];
 			start = isometric_projection(x * scale, y * scale, z * scale);
-			printf("start.x: %d, start.y: %d\n", start.x, start.y);
+			start.x += offset_x;
+			start.y += offset_y;
 			if (x + 1 < map->width)
 			{
-				int next_z = map->z_matrix[y][x + 1];
-				printf("next_z x + 1 < map->width: %d\n", next_z);
+				next_z = map->z_matrix[y][x + 1];
 				end = isometric_projection((x + 1) * scale, y * scale, next_z * scale);
+				end.x += offset_x;
+				end.y += offset_y;
 				bresenham_line(img, start, end, 0xFFFFFF);
 			}
 			if (y + 1 < map->height)
 			{
-				int next_z = map->z_matrix[y + 1][x];
-				printf("next_z y + 1 < map->height: %d\n", next_z);
+				next_z = map->z_matrix[y + 1][x];
 				end = isometric_projection(x * scale, (y + 1) * scale, next_z * scale);
+				end.x += offset_x;
+				end.y += offset_y;
 				bresenham_line(img, start, end, 0xFFFFFF);
 			}
+			x++;
 		}
+		y++;
 	}
 }
 
@@ -84,7 +93,7 @@ int	render(t_fdf *fdf)
 	else
 		current_img = &fdf->img2;
 	clear_image(current_img, fdf->width, fdf->height);
-	draw_map(current_img, fdf->map, fdf->zoom);
+	draw_map(current_img, fdf->map, fdf->zoom, fdf->offset_x, fdf->offset_y);
 	mlx_put_image_to_window(fdf->mlx, fdf->win, current_img->img, 0, 0);
 	fdf->current_img = 1 - fdf->current_img;
 	return (0);

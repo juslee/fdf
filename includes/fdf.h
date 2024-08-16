@@ -6,7 +6,7 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 17:36:06 by welee             #+#    #+#             */
-/*   Updated: 2024/08/15 18:22:16 by welee            ###   ########.fr       */
+/*   Updated: 2024/08/17 00:10:12 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,7 @@ typedef struct s_fdf
 int		init(t_fdf *fdf, t_map *map);
 void	put_pixel(t_image *img, t_point p, int color, double brightness);
 void	bresenham_line(t_image *img, t_point start, t_point end, int color);
+int		cohen_sutherland_clip(t_point *start, t_point *end);
 void	wu_line(t_image *img, t_point start, t_point end, int color);
 void	hook_events(t_fdf *fdf);
 void	cleanup(t_fdf *fdf);
