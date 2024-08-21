@@ -6,14 +6,14 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 17:36:06 by welee             #+#    #+#             */
-/*   Updated: 2024/08/17 00:10:12 by welee            ###   ########.fr       */
+/*   Updated: 2024/08/21 18:25:31 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FDF_H
 # define FDF_H
 
-# include "parser.h"
+# include "heightmap.h"
 # include "utils.h"
 # include "mlx.h"
 # include "libft.h"
@@ -73,6 +73,8 @@ typedef struct s_fdf
 	int		width;
 	int		height;
 	int		current_img;
+	int		case_size;
+	int		z_size;
 	float	zoom;
 	int		offset_x;
 	int		offset_y;

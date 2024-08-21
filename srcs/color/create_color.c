@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_map.c                                         :+:      :+:    :+:   */
+/*   create_color.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/12 18:53:14 by welee             #+#    #+#             */
-/*   Updated: 2024/08/13 10:59:38 by welee            ###   ########.fr       */
+/*   Created: 2024/08/21 15:35:36 by welee             #+#    #+#             */
+/*   Updated: 2024/08/21 15:43:14 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parser.h"
+#include "color.h"
 
-void	free_map(t_map *map)
+t_color	create_color(int r, int g, int b)
 {
-	int	i;
+	t_color	color;
 
-	if (!map)
-		return ;
-	if (map->z_matrix)
-	{
-		i = 0;
-		while (i < map->height)
-		{
-			free(map->z_matrix[i]);
-			i++;
-		}
-		free(map->z_matrix);
-	}
-	free(map);
+	if (r >= 0 && r <= 255)
+		color.r = r;
+	else
+		color.r = 255;
+	if (g >= 0 && g <= 255)
+		color.g = g;
+	else
+		color.g = 255;
+	if (b >= 0 && b <= 255)
+		color.b = b;
+	else
+		color.b = 255;
+	return (color);
 }
