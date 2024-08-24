@@ -1,32 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   scale_point.c                                      :+:      :+:    :+:   */
+/*   vec_length.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/21 17:55:07 by welee             #+#    #+#             */
-/*   Updated: 2024/08/21 18:05:47 by welee            ###   ########.fr       */
+/*   Created: 2024/08/22 13:03:49 by welee             #+#    #+#             */
+/*   Updated: 2024/08/22 13:04:32 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "point.h"
+#include "vector.h"
+#include <math.h>
 
-t_point2d	scale_point2d(t_point2d p, int scalar)
+float	vec2_length(t_vec2 v)
 {
-	t_point2d	result;
-
-	result.x = p.x * scalar;
-	result.y = p.y * scalar;
-	return (result);
+	return (sqrt(v.x * v.x + v.y * v.y));
 }
 
-t_point3d	scale_point3d(t_point3d p, int scalar)
+float	vec3_length(t_vec3 v)
 {
-	t_point3d	result;
-
-	result.x = p.x * scalar;
-	result.y = p.y * scalar;
-	result.z = p.z * scalar;
-	return (result);
+	return (sqrt(v.x * v.x + v.y * v.y + v.z * v.z));
 }

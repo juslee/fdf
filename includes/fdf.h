@@ -6,7 +6,7 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 17:36:06 by welee             #+#    #+#             */
-/*   Updated: 2024/08/21 18:25:31 by welee            ###   ########.fr       */
+/*   Updated: 2024/08/24 18:16:24 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define FDF_H
 
 # include "heightmap.h"
+# include "matrix.h"
 # include "utils.h"
 # include "mlx.h"
 # include "libft.h"
@@ -68,19 +69,12 @@ typedef struct s_fdf
 	void	*mlx;
 	void	*win;
 	t_map	*map;
-	t_image	img1;
-	t_image	img2;
+	t_image	image;
+	t_mat4	transform;
 	int		width;
 	int		height;
-	int		current_img;
 	int		case_size;
 	int		z_size;
-	float	zoom;
-	int		offset_x;
-	int		offset_y;
-	float	angle_x;
-	float	angle_y;
-	float	angle_z;
 }	t_fdf;
 
 // Function prototypes

@@ -6,7 +6,7 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 16:17:52 by welee             #+#    #+#             */
-/*   Updated: 2024/08/21 18:49:04 by welee            ###   ########.fr       */
+/*   Updated: 2024/08/24 18:11:13 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,10 @@ void	print_map_point(t_map *map)
 		x = 0;
 		while (x < map->width)
 		{
-			ft_printf("%d", map->map_points[y][x].point.z);
-			if (!is_default_color(map->map_points[y][x].color))
+			ft_printf("%d", (int)map->vertex[y][x].position.z);
+			if (!is_default_color(map->vertex[y][x].color))
 			{
-				hex_color = color_to_hex(map->map_points[y][x].color);
+				hex_color = color_to_hex(map->vertex[y][x].color);
 				ft_printf(",0x%X", hex_color);
 			}
 			if (x < map->width - 1)
@@ -57,6 +57,7 @@ void	print_map_point(t_map *map)
 			x++;
 		}
 		ft_printf("\n");
+		fflush(stdout);
 		y++;
 	}
 }

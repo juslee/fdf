@@ -6,7 +6,7 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 13:37:04 by welee             #+#    #+#             */
-/*   Updated: 2024/08/21 18:26:50 by welee            ###   ########.fr       */
+/*   Updated: 2024/08/24 17:49:37 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,32 +79,32 @@ static int	parse_lines(t_map *map, int fd)
 	return (1);
 }
 
-static t_map_point	parse_map_point(char *token, int x, int y)
+static t_vertex	parse_vertex(char *token, int x, int y)
 {
-	t_map_point	point;
+	t_vertex	point;
 	char		*comma_pos;
 	char		*z_str;
 	char		*color_str;
 
-	point.point = create_point3d(x, y, 0);
-	point.color = create_color(255, 255, 255);
+	point.position = vec3_create(x, y, 0);
+	point.color = create_color_rgb(255, 255, 255);
 	comma_pos = ft_strchr(token, ',');
 	if (comma_pos != NULL)
 	{
 		*comma_pos = '\0';
 		z_str = token;
 		color_str = comma_pos + 1;
-		point.point.z = ft_atoi(z_str);
+		point.position.z = ft_atoi(z_str);
 		point.color = parse_color(color_str);
 	}
 	else
 	{
-		point.point.z = ft_atoi(token);
+		point.position.z = ft_atoi(token);
 	}
 	return (point);
 }
 
-static int	fill_map_points(t_map_point *map_row, char *line, int y)
+static int	fill_vertex(t_vertex *map_row, char *line, int y)
 {
 	char	**tokens;
 	int		x;
@@ -115,7 +115,7 @@ static int	fill_map_points(t_map_point *map_row, char *line, int y)
 	x = 0;
 	while (tokens[x] != NULL)
 	{
-		map_row[x] = parse_map_point(tokens[x], x, y);
+		map_row[x] = parse_vertex(tokens[x], x, y);
 		free(tokens[x]);
 		x++;
 	}
@@ -129,19 +129,18 @@ static int	parse_lines_2(t_map *map, int fd)
 
 	y = 0;
 	line = get_next_line(fd);
-	ft_printf("line: %s\n", line);
 	while (line != NULL)
 	{
-		map->map_points[y] = malloc(sizeof(t_map_point) * map->width);
-		if (!map->map_points[y] || !fill_map_points(map->map_points[y], line, y))
+		map->vertex[y] = malloc(sizeof(t_vertex) * map->width);
+		if (!map->vertex[y] || !fill_vertex(map->vertex[y], line, y))
 		{
 			free(line);
 			while (y > 0)
 			{
 				y--;
-				free(map->map_points[y]);
+				free(map->vertex[y]);
 			}
-			free(map->map_points);
+			free(map->vertex);
 			return (0);
 		}
 		free(line);
@@ -186,10 +185,10 @@ int	parse_map(const char *filename, t_map *map)
 	if (map->height == 0 || map->width == 0)
 		return (ft_printf("No data found.\n"), 0);
 	map->z_matrix = malloc(sizeof(int *) * map->height);
-	map->map_points = malloc(sizeof(t_map_point *) * map->height);
+	map->vertex = malloc(sizeof(t_vertex *) * map->height);
 	if (!map->z_matrix)
 		return (ft_printf("Memory allocation failed\n"), 0);
-	if (!map->map_points)
+	if (!map->vertex)
 		return (ft_printf("Memory allocation failed\n"), 0);
 	fd = open(filename, O_RDONLY);
 	if (fd < 0 || !parse_lines(map, fd))

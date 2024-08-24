@@ -6,7 +6,7 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/07 12:31:52 by welee             #+#    #+#             */
-/*   Updated: 2024/08/21 18:36:26 by welee            ###   ########.fr       */
+/*   Updated: 2024/08/24 17:46:48 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,21 @@
 # define HEIGHTMAP_H
 
 # include "color.h"
-# include "point.h"
+# include "vector.h"
 
-typedef struct s_map_point
+typedef struct s_vertex
 {
-	t_point3d	point;
-	t_color		color;
-}	t_map_point;
+	t_vec3	position;
+	// t_vec2	projection; // Not used
+	t_color	color;
+}	t_vertex;
 
 typedef struct s_map
 {
 	int			width;
 	int			height;
 	int			**z_matrix;
-	t_map_point	**map_points;
+	t_vertex	**vertex;
 }	t_map;
 
 /*

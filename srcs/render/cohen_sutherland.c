@@ -6,7 +6,7 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 23:59:37 by welee             #+#    #+#             */
-/*   Updated: 2024/08/17 00:18:48 by welee            ###   ########.fr       */
+/*   Updated: 2024/08/24 17:51:39 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,4 +95,3 @@ int	cohen_sutherland_clip(t_point *start, t_point *end)
 	}
 	return (1);
 }
-

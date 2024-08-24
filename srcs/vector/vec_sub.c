@@ -1,18 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   color_to_hex.c                                     :+:      :+:    :+:   */
+/*   subtract_points.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/21 15:40:45 by welee             #+#    #+#             */
-/*   Updated: 2024/08/22 14:33:40 by welee            ###   ########.fr       */
+/*   Created: 2024/08/21 17:37:05 by welee             #+#    #+#             */
+/*   Updated: 2024/08/22 12:51:05 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "color.h"
+#include "vector.h"
 
-int	color_to_hex(t_color color)
+t_vec2	vec2_sub(t_vec2 v1, t_vec2 v2)
 {
-	return ((color.r << 16) | (color.g << 8) | color.b);
+	t_vec2	result;
+
+	result.x = v1.x - v2.x;
+	result.y = v1.y - v2.y;
+	return (result);
+}
+
+t_vec3	vec3_sub(t_vec3 v1, t_vec3 v2)
+{
+	t_vec3	result;
+
+	result.x = v1.x - v2.x;
+	result.y = v1.y - v2.y;
+	result.z = v1.z - v2.z;
+	return (result);
 }

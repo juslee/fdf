@@ -6,7 +6,7 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/10 16:07:31 by welee             #+#    #+#             */
-/*   Updated: 2024/08/15 20:15:30 by welee            ###   ########.fr       */
+/*   Updated: 2024/08/22 15:47:04 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,6 @@
 */
 void	draw_map(t_map *map, t_fdf *fdf);
 int		render(t_fdf *fdf);
+int		main_loop(t_fdf *fdf);
 
 #endif

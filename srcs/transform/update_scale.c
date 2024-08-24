@@ -1,18 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   color_to_hex.c                                     :+:      :+:    :+:   */
+/*   update_scale.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/21 15:40:45 by welee             #+#    #+#             */
-/*   Updated: 2024/08/22 14:33:40 by welee            ###   ########.fr       */
+/*   Created: 2024/08/22 19:09:00 by welee             #+#    #+#             */
+/*   Updated: 2024/08/24 18:13:36 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "color.h"
+#include "transform.h"
 
-int	color_to_hex(t_color color)
+void	update_scale(t_mat4 *transform, t_scale scale)
 {
-	return ((color.r << 16) | (color.g << 8) | color.b);
+	t_mat4	mat_scaling;
+
+	mat_scaling = mat4_scale(scale);
+	*transform = mat4_multiply(*transform, mat_scaling);
 }

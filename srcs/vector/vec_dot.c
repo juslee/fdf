@@ -1,18 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   color_to_hex.c                                     :+:      :+:    :+:   */
+/*   vec_dot.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/21 15:40:45 by welee             #+#    #+#             */
-/*   Updated: 2024/08/22 14:33:40 by welee            ###   ########.fr       */
+/*   Created: 2024/08/21 17:55:33 by welee             #+#    #+#             */
+/*   Updated: 2024/08/24 17:44:20 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "color.h"
+#include "vector.h"
 
-int	color_to_hex(t_color color)
+float	vec2_dot(t_vec2 v1, t_vec2 v2)
 {
-	return ((color.r << 16) | (color.g << 8) | color.b);
+	return (v1.x * v2.x + v1.y * v2.y);
+}
+
+float	vec3_dot(t_vec3 v1, t_vec3 v2)
+{
+	return (v1.x * v2.x + v1.y * v2.y + v1.z * v2.z);
 }

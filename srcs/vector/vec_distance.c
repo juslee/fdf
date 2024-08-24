@@ -1,32 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   add_points2d.c                                     :+:      :+:    :+:   */
+/*   vec_distance.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/21 17:36:42 by welee             #+#    #+#             */
-/*   Updated: 2024/08/21 18:03:21 by welee            ###   ########.fr       */
+/*   Created: 2024/08/21 17:52:12 by welee             #+#    #+#             */
+/*   Updated: 2024/08/22 13:08:02 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "point.h"
+#include "vector.h"
+#include <math.h>
 
-t_point2d	add_points2d(t_point2d p1, t_point2d p2)
+float	vec2_distance(t_vec2 v1, t_vec2 v2)
 {
-	t_point2d	point;
+	int	dx;
+	int	dy;
 
-	point.x = p1.x + p2.x;
-	point.y = p1.y + p2.y;
-	return (point);
+	dx = v1.x - v2.x;
+	dy = v1.y - v2.y;
+	return (sqrtf(dx * dx + dy * dy));
 }
 
-t_point3d	add_points3d(t_point3d p1, t_point3d p2)
+float	vec3_distance(t_vec3 v1, t_vec3 v2)
 {
-	t_point3d	point;
+	int	dx;
+	int	dy;
+	int	dz;
 
-	point.x = p1.x + p2.x;
-	point.y = p1.y + p2.y;
-	point.z = p1.z + p2.z;
-	return (point);
+	dx = v2.x - v1.x;
+	dy = v2.y - v1.y;
+	dz = v2.z - v1.z;
+	return (sqrt(dx * dx + dy * dy + dz * dz));
 }

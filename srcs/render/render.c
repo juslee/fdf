@@ -6,7 +6,7 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 13:40:45 by welee             #+#    #+#             */
-/*   Updated: 2024/08/17 01:35:31 by welee            ###   ########.fr       */
+/*   Updated: 2024/08/24 18:09:16 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static t_point	isometric_projection(int x, int y, int z)
 }
 #include <stdio.h>
 
-void	draw_map(t_image *img, t_map *map, int scale, int offset_x, int offset_y)
+void	draw_map(t_image *img, t_map *map)
 {
 	t_point	start;
 	t_point	end;
@@ -59,23 +59,17 @@ void	draw_map(t_image *img, t_map *map, int scale, int offset_x, int offset_y)
 		while (x < map->width)
 		{
 			z = map->z_matrix[y][x];
-			start = isometric_projection(x * scale, y * scale, z * scale);
-			start.x += offset_x;
-			start.y += offset_y;
+			start = isometric_projection(x, y, z);
 			if (x + 1 < map->width)
 			{
 				next_z = map->z_matrix[y][x + 1];
-				end = isometric_projection((x + 1) * scale, y * scale, next_z * scale);
-				end.x += offset_x;
-				end.y += offset_y;
+				end = isometric_projection((x + 1), y, next_z);
 				bresenham_line(img, start, end, 0xFFFFFF);
 			}
 			if (y + 1 < map->height)
 			{
 				next_z = map->z_matrix[y + 1][x];
-				end = isometric_projection(x * scale, (y + 1) * scale, next_z * scale);
-				end.x += offset_x;
-				end.y += offset_y;
+				end = isometric_projection(x, (y + 1), next_z);
 				bresenham_line(img, start, end, 0xFFFFFF);
 			}
 			x++;
@@ -86,15 +80,19 @@ void	draw_map(t_image *img, t_map *map, int scale, int offset_x, int offset_y)
 
 int	render(t_fdf *fdf)
 {
-	t_image	*current_img;
+	draw_map(&fdf->image, fdf->map);
+	return (0);
+}
 
-	if (fdf->current_img == 0)
-		current_img = &fdf->img1;
-	else
-		current_img = &fdf->img2;
-	clear_image(current_img, fdf->width, fdf->height);
-	draw_map(current_img, fdf->map, fdf->zoom, fdf->offset_x, fdf->offset_y);
-	mlx_put_image_to_window(fdf->mlx, fdf->win, current_img->img, 0, 0);
-	fdf->current_img = 1 - fdf->current_img;
+void	swap_buffers(t_fdf *fdf)
+{
+	mlx_put_image_to_window(fdf->mlx, fdf->win, fdf->image.img, 0, 0);
+}
+
+int main_loop(t_fdf *fdf)
+{
+	clear_image(&fdf->image, fdf->width, fdf->height);
+	render(fdf);
+	swap_buffers(fdf);
 	return (0);
 }

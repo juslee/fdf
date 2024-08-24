@@ -1,32 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   create_point2d.c                                   :+:      :+:    :+:   */
+/*   mat4_identity.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/21 17:36:18 by welee             #+#    #+#             */
-/*   Updated: 2024/08/21 18:03:47 by welee            ###   ########.fr       */
+/*   Created: 2024/08/22 17:46:17 by welee             #+#    #+#             */
+/*   Updated: 2024/08/24 16:52:25 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "point.h"
+#include "matrix.h"
 
-t_point2d	create_point2d(int x, int y)
+t_mat4	mat4_identity(void)
 {
-	t_point2d	point;
+	t_mat4	mat;
+	int		i;
+	int		j;
 
-	point.x = x;
-	point.y = y;
-	return (point);
-}
-
-t_point3d	create_point3d(int x, int y, int z)
-{
-	t_point3d	point;
-
-	point.x = x;
-	point.y = y;
-	point.z = z;
-	return (point);
+	i = 0;
+	while (i < 4)
+	{
+		j = 0;
+		while (j < 4)
+		{
+			if (i == j)
+				mat.m[i][j] = 1.0f;
+			else
+				mat.m[i][j] = 0.0f;
+			j++;
+		}
+		i++;
+	}
+	return (mat);
 }

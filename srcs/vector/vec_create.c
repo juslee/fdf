@@ -1,24 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   dot_product.c                                      :+:      :+:    :+:   */
+/*   vec_create.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/21 17:55:33 by welee             #+#    #+#             */
-/*   Updated: 2024/08/21 18:04:59 by welee            ###   ########.fr       */
+/*   Created: 2024/08/21 17:36:18 by welee             #+#    #+#             */
+/*   Updated: 2024/08/22 19:06:02 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "point.h"
+#include "vector.h"
 
-int	dot_product2d(t_point2d p1, t_point2d p2)
+t_vec2	vec2_create(float x, float y)
 {
-	return (p1.x * p2.x + p1.y * p2.y);
+	t_vec2	vector;
+
+	vector.x = x;
+	vector.y = y;
+	return (vector);
 }
 
-int	dot_product3d(t_point3d p1, t_point3d p2)
+t_vec3	vec3_create(float x, float y, float z)
 {
-	return (p1.x * p2.x + p1.y * p2.y + p1.z * p2.z);
-}
+	t_vec3	vector;
 
+	vector.x = x;
+	vector.y = y;
+	vector.z = z;
+	return (vector);
+}

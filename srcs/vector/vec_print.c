@@ -1,18 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   color_to_hex.c                                     :+:      :+:    :+:   */
+/*   vec_print.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/21 15:40:45 by welee             #+#    #+#             */
-/*   Updated: 2024/08/22 14:33:40 by welee            ###   ########.fr       */
+/*   Created: 2024/08/21 17:56:04 by welee             #+#    #+#             */
+/*   Updated: 2024/08/22 13:33:32 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "color.h"
+#include "vector.h"
+#include "ft_printf.h"
 
-int	color_to_hex(t_color color)
+void	vec2_print(t_vec2 v)
 {
-	return ((color.r << 16) | (color.g << 8) | color.b);
+	ft_printf("t_vec2: {x: %d, y: %d}\n", v.x, v.y);
+}
+
+void	vec3_print(t_vec3 v)
+{
+	ft_printf("t_vec3: (x: %d, y: %d, z: %d)\n", v.x, v.y, v.z);
 }

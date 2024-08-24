@@ -1,32 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   subtract_points.c                                  :+:      :+:    :+:   */
+/*   vec_cross.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/21 17:37:05 by welee             #+#    #+#             */
-/*   Updated: 2024/08/21 18:06:11 by welee            ###   ########.fr       */
+/*   Created: 2024/08/22 12:56:18 by welee             #+#    #+#             */
+/*   Updated: 2024/08/22 12:56:34 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "point.h"
+#include "vector.h"
 
-t_point2d	subtract_points2d(t_point2d p1, t_point2d p2)
+t_vec3	vec3_cross(t_vec3 v1, t_vec3 v2)
 {
-	t_point2d	point;
+	t_vec3	result;
 
-	point.x = p1.x - p2.x;
-	point.y = p1.y - p2.y;
-	return (point);
-}
-
-t_point3d	subtract_points3d(t_point3d p1, t_point3d p2)
-{
-	t_point3d	result;
-
-	result.x = p1.x - p2.x;
-	result.y = p1.y - p2.y;
-	result.z = p1.z - p2.z;
+	result.x = v1.y * v2.z - v1.z * v2.y;
+	result.y = v1.z * v2.x - v1.x * v2.z;
+	result.z = v1.x * v2.y - v1.y * v2.x;
 	return (result);
 }

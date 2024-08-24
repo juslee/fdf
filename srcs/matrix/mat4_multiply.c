@@ -1,36 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   distance_between_points2d.c                        :+:      :+:    :+:   */
+/*   mat4_multiply.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/21 17:52:12 by welee             #+#    #+#             */
-/*   Updated: 2024/08/21 18:04:23 by welee            ###   ########.fr       */
+/*   Created: 2024/08/22 17:46:53 by welee             #+#    #+#             */
+/*   Updated: 2024/08/22 17:47:45 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "point.h"
-#include <math.h>
+#include "matrix.h"
 
-float	distance_between_points2d(t_point2d p1, t_point2d p2)
+t_mat4	mat4_multiply(t_mat4 a, t_mat4 b)
 {
-	int	dx;
-	int	dy;
+	t_mat4	result;
+	int		i;
+	int		j;
+	int		k;
 
-	dx = p1.x - p2.x;
-	dy = p1.y - p2.y;
-	return (sqrtf(dx * dx + dy * dy));
-}
-
-float	distance_between_points3d(t_point3d p1, t_point3d p2)
-{
-	int	dx;
-	int	dy;
-	int	dz;
-
-	dx = p1.x - p2.x;
-	dy = p1.y - p2.y;
-	dz = p1.z - p2.z;
-	return (sqrtf(dx * dx + dy * dy + dz * dz));
+	i = 0;
+	while (i < 4)
+	{
+		j = 0;
+		while (j < 4)
+		{
+			result.m[i][j] = 0;
+			k = 0;
+			while (k < 4)
+			{
+				result.m[i][j] += a.m[i][k] * b.m[k][j];
+				k++;
+			}
+			j++;
+		}
+		i++;
+	}
+	return (result);
 }

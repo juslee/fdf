@@ -6,7 +6,7 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 16:54:52 by welee             #+#    #+#             */
-/*   Updated: 2024/08/21 17:17:06 by welee            ###   ########.fr       */
+/*   Updated: 2024/08/24 18:27:50 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,13 @@ int	main(int argc, char **argv)
 
 	fdf.width = WIN_WIDTH;
 	fdf.height = WIN_HEIGHT;
+	fdf.case_size = 30;
+	fdf.z_size = 1;
 	if (argc < 2 || argc > 4)
 		return (
 			ft_printf("Usage : %s <filename> [ case_size z_size ]\n", argv[0]),
 			EXIT_FAILURE);
-	if (argc == 4)
+	if (argc == 4 && ft_isnumber(argv[2]) && ft_isnumber(argv[3]))
 	{
 		fdf.case_size = ft_atoi(argv[2]);
 		fdf.z_size = ft_atoi(argv[3]);
@@ -57,9 +59,7 @@ int	main(int argc, char **argv)
 		return (EXIT_FAILURE);
 	if (!init(&fdf, &map))
 		return (EXIT_FAILURE);
-	print_map(&map);
-	print_map_point(&map);
-	mlx_loop_hook(fdf.mlx, render, &fdf);
+	mlx_loop_hook(fdf.mlx, main_loop, &fdf);
 	mlx_hook(fdf.win, 2, 1L << 0, handle_keypress, &fdf);
 	mlx_hook(fdf.win, 17, 1L << 17, close_window, &fdf);
 	mlx_loop(fdf.mlx);

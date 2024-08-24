@@ -1,18 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   color_to_hex.c                                     :+:      :+:    :+:   */
+/*   mat4_scale.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/21 15:40:45 by welee             #+#    #+#             */
-/*   Updated: 2024/08/22 14:33:40 by welee            ###   ########.fr       */
+/*   Created: 2024/08/22 17:49:41 by welee             #+#    #+#             */
+/*   Updated: 2024/08/24 16:33:58 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "color.h"
+#include "matrix.h"
 
-int	color_to_hex(t_color color)
+t_mat4	mat4_scale(t_scale scale)
 {
-	return ((color.r << 16) | (color.g << 8) | color.b);
+	t_mat4	mat;
+
+	mat = mat4_identity();
+	mat.m[0][0] = scale.sx;
+	mat.m[1][1] = scale.sy;
+	mat.m[2][2] = scale.sz;
+	return (mat);
 }

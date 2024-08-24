@@ -6,7 +6,7 @@
 #    By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/01 14:31:18 by welee             #+#    #+#              #
-#    Updated: 2024/08/21 18:25:52 by welee            ###   ########.fr        #
+#    Updated: 2024/08/22 19:05:45 by welee            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,10 +16,11 @@ BONUS_NAME = $(BINS_DIR)/fdf_bonus
 SRCS = $(wildcard $(SRCS_DIR)/*.c) \
 	   $(wildcard $(SRCS_DIR)/color/*.c) \
 	   $(wildcard $(SRCS_DIR)/heightmap/*.c) \
-	   $(wildcard $(SRCS_DIR)/point/*.c) \
+	   $(wildcard $(SRCS_DIR)/matrix/*.c) \
 	   $(wildcard $(SRCS_DIR)/render/*.c) \
-	   $(wildcard $(SRCS_DIR)/transformation/*.c) \
-	   $(wildcard $(SRCS_DIR)/utils/*.c)
+	   $(wildcard $(SRCS_DIR)/transform/*.c) \
+	   $(wildcard $(SRCS_DIR)/utils/*.c) \
+	   $(wildcard $(SRCS_DIR)/vector/*.c)
 OBJS = $(SRCS:$(SRCS_DIR)/%.c=$(OBJS_DIR)/%.o)
 
 SRCS_DIR = srcs
