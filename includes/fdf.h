@@ -6,7 +6,7 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 17:36:06 by welee             #+#    #+#             */
-/*   Updated: 2024/08/24 18:16:24 by welee            ###   ########.fr       */
+/*   Updated: 2024/08/28 18:12:12 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,26 +25,20 @@
 # define WIN_HEIGHT 600
 
 // Image Buffer
-typedef struct s_image
+typedef struct s_buffer
 {
 	void	*img;
 	char	*addr;
 	int		bits_per_pixel;
 	int		line_length;
 	int		endian;
-}	t_image;
-
-typedef struct s_point
-{
-	int		x;
-	int		y;
-}	t_point;
+}	t_buffer;
 
 typedef struct s_pixel
 {
-	t_point	point;
+	t_vec2i	point;
 	double	brightness;
-	int		color;
+	t_color	color;
 }	t_pixel;
 
 typedef struct s_bresenham
@@ -66,23 +60,28 @@ typedef struct s_wu
 
 typedef struct s_fdf
 {
-	void	*mlx;
-	void	*win;
-	t_map	*map;
-	t_image	image;
-	t_mat4	transform;
-	int		width;
-	int		height;
-	int		case_size;
-	int		z_size;
+	void		*mlx;
+	void		*win;
+	t_map		*map;
+	t_buffer	buffer;
+	t_mat4		model;
+	t_mat4		view;
+	t_mat4		projection;
+	int			width;
+	int			height;
+	int			case_size;
+	int			z_size;
+	int			zoom;
+	int			offset_x;
+	int			offset_y;
 }	t_fdf;
 
 // Function prototypes
 int		init(t_fdf *fdf, t_map *map);
-void	put_pixel(t_image *img, t_point p, int color, double brightness);
-void	bresenham_line(t_image *img, t_point start, t_point end, int color);
-int		cohen_sutherland_clip(t_point *start, t_point *end);
-void	wu_line(t_image *img, t_point start, t_point end, int color);
+void	put_pixel(t_buffer *img, t_vec2i p, t_color color, double brightness);
+void	bresenham_line(t_buffer *img, t_pixel start, t_pixel end);
+int		cohen_sutherland_clip(t_vec2i *start, t_vec2i *end);
+void	wu_line(t_buffer *img, t_vec2i start, t_vec2i end, int color);
 void	hook_events(t_fdf *fdf);
 void	cleanup(t_fdf *fdf);
 

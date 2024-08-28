@@ -6,7 +6,7 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 16:54:07 by welee             #+#    #+#             */
-/*   Updated: 2024/08/24 16:40:19 by welee            ###   ########.fr       */
+/*   Updated: 2024/08/28 18:07:57 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,12 @@ typedef struct s_mat4
 	float	m[4][4];
 }	t_mat4;
 
-typedef struct s_scale
+typedef struct s_scaling
 {
 	float	sx;
 	float	sy;
 	float	sz;
-}	t_scale;
+}	t_scaling;
 
 typedef struct s_rotation
 {
@@ -41,15 +41,35 @@ typedef struct s_translation
 	float	tz;
 }	t_translation;
 
+typedef struct s_map_x
+{
+	float	left;
+	float	right;
+}	t_map_x;
+
+typedef struct s_map_y
+{
+	float	bottom;
+	float	top;
+}	t_map_y;
+
+typedef struct s_elevation
+{
+	float	near;
+	float	far;
+}	t_elevation;
+
 // Function prototypes
 t_mat4	mat4_identity(void);
 t_mat4	mat4_multiply(t_mat4 a, t_mat4 b);
 t_mat4	mat4_translate(t_translation translation);
-t_mat4	mat4_scale(t_scale scale);
+t_mat4	mat4_scale(t_scaling scale);
 t_mat4	mat4_rotate_x(float angle);
 t_mat4	mat4_rotate_y(float angle);
 t_mat4	mat4_rotate_z(float angle);
 t_mat4	mat4_rotate(t_rotation angle);
-t_vec3	mat4_apply_to_vec3(t_mat4 m, t_vec3 v);
+t_mat4	mat4_orthographic(t_map_x map_x,
+			t_map_y map_y, t_elevation elevation);
+t_vec3f	mat4_apply_to_vec3(t_mat4 m, t_vec3f v);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 16:17:52 by welee             #+#    #+#             */
-/*   Updated: 2024/08/24 18:11:13 by welee            ###   ########.fr       */
+/*   Updated: 2024/08/27 14:11:08 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	print_map(t_map *map)
 	}
 }
 
-void	print_map_point(t_map *map)
+void	print_vertex(t_map *map)
 {
 	int	y;
 	int	x;

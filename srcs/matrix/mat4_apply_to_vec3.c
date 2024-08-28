@@ -6,15 +6,15 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 17:55:36 by welee             #+#    #+#             */
-/*   Updated: 2024/08/24 17:43:19 by welee            ###   ########.fr       */
+/*   Updated: 2024/08/28 18:07:57 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "matrix.h"
 
-t_vec3	mat4_apply_to_vec3(t_mat4 mat, t_vec3 vec)
+t_vec3f	mat4_apply_to_vec3(t_mat4 mat, t_vec3f vec)
 {
-	t_vec3	result;
+	t_vec3f	result;
 	float	w;
 
 	result.x = mat.m[0][0] * vec.x + mat.m[0][1] * vec.y + mat.m[0][2] * vec.z

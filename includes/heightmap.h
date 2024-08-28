@@ -6,7 +6,7 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/07 12:31:52 by welee             #+#    #+#             */
-/*   Updated: 2024/08/24 17:46:48 by welee            ###   ########.fr       */
+/*   Updated: 2024/08/28 18:07:57 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,19 @@
 # include "color.h"
 # include "vector.h"
 
+// vertex is the 3D point in the world
+//     Z
+//     |
+//     |
+//     |
+//     +-------- X
+//    /
+//   /
+//  /
+// Y
 typedef struct s_vertex
 {
-	t_vec3	position;
+	t_vec3f	position;
 	// t_vec2	projection; // Not used
 	t_color	color;
 }	t_vertex;
@@ -40,6 +50,6 @@ void	free_map_point(t_map *map);
 
 // Debugging Prototypes
 void	print_map(t_map *map);
-void	print_map_point(t_map *map);
+void	print_vertex(t_map *map);
 
 #endif

@@ -6,14 +6,14 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 14:38:56 by welee             #+#    #+#             */
-/*   Updated: 2024/08/17 00:09:30 by welee            ###   ########.fr       */
+/*   Updated: 2024/08/28 18:57:14 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 #include <stdio.h>
 
-static void	init_bresenham(t_bresenham *b, t_point start, t_point end)
+static void	init_bresenham(t_bresenham *b, t_vec2i start, t_vec2i end)
 {
 	b->dx = abs(end.x - start.x);
 	b->dy = abs(end.y - start.y);
@@ -28,31 +28,41 @@ static void	init_bresenham(t_bresenham *b, t_point start, t_point end)
 	b->err = b->dx - b->dy;
 }
 
-void	bresenham_line(t_image *img, t_point start, t_point end, int color)
+static float	get_t(t_pixel start, t_pixel end, t_vec2i p)
+{
+	float	total_distance;
+	float	current_distance;
+
+	total_distance = vec2i_distance(start.point, end.point);
+	current_distance = vec2i_distance(start.point, p);
+	return (current_distance / total_distance);
+}
+
+void	bresenham_line(t_buffer *buf, t_pixel start, t_pixel end)
 {
 	t_bresenham	b;
-	t_point		p;
+	t_vec2i		p;
 	int			err2;
 
-	if (cohen_sutherland_clip(&start, &end))
+	if (!cohen_sutherland_clip(&start.point, &end.point))
+		return ;
+	init_bresenham(&b, start.point, end.point);
+	p = start.point;
+	while (p.x != end.point.x || p.y != end.point.y)
 	{
-		init_bresenham(&b, start, end);
-		p = start;
-		while (p.x != end.x || p.y != end.y)
+		put_pixel(buf, p,
+			lerp_color(start.color, end.color, get_t(start, end, p)), 1.0);
+		err2 = 2 * b.err;
+		if (err2 > -b.dy)
 		{
-			put_pixel(img, p, color, 1.0);
-			err2 = 2 * b.err;
-			if (err2 > -b.dy)
-			{
-				b.err -= b.dy;
-				p.x += b.sx;
-			}
-			if (err2 < b.dx)
-			{
-				b.err += b.dx;
-				p.y += b.sy;
-			}
+			b.err -= b.dy;
+			p.x += b.sx;
 		}
-		put_pixel(img, end, color, 1.0);
+		if (err2 < b.dx)
+		{
+			b.err += b.dx;
+			p.y += b.sy;
+		}
 	}
+	put_pixel(buf, end.point, end.color, 1.0);
 }

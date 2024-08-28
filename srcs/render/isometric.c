@@ -6,7 +6,7 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 15:09:42 by welee             #+#    #+#             */
-/*   Updated: 2024/08/15 15:13:11 by welee            ###   ########.fr       */
+/*   Updated: 2024/08/28 15:04:00 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,12 @@
 t_point	isometric_projection(int x, int y, int z)
 {
 	t_point	result;
-	double	angle;
+	double	angle_x;
+	double	angle_y;
 
-	angle = M_PI / 60;
-	result.x = (x - y) * cos(angle);
-	result.y = (x + y) * sin(angle) - z;
+	angle_y = M_PI / 4;
+	angle_x = M_PI / 6;
+	result.x = (x - y) * cos(angle_x);
+	result.y = (x + y) * sin(angle_y) - z;
 	return (result);
 }

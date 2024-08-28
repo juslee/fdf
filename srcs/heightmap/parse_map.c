@@ -6,7 +6,7 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 13:37:04 by welee             #+#    #+#             */
-/*   Updated: 2024/08/24 17:49:37 by welee            ###   ########.fr       */
+/*   Updated: 2024/08/28 19:28:16 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,50 +34,50 @@ static int	get_width(const char *line)
 	return (free(split), width);
 }
 
-static int	fill_z_matrix(int *z_line, char *line)
-{
-	char	**split;
-	int		i;
+// static int	fill_z_matrix(int *z_line, char *line)
+// {
+// 	char	**split;
+// 	int		i;
 
-	split = ft_split(line, ' ');
-	if (!split)
-		return (0);
-	i = 0;
-	while (split[i])
-	{
-		z_line[i] = ft_atoi(split[i]);
-		free(split[i]);
-		i++;
-	}
-	return (free(split), 1);
-}
+// 	split = ft_split(line, ' ');
+// 	if (!split)
+// 		return (0);
+// 	i = 0;
+// 	while (split[i])
+// 	{
+// 		z_line[i] = ft_atoi(split[i]);
+// 		free(split[i]);
+// 		i++;
+// 	}
+// 	return (free(split), 1);
+// }
 
-static int	parse_lines(t_map *map, int fd)
-{
-	char	*line;
-	int		i;
+// static int	parse_lines(t_map *map, int fd)
+// {
+// 	char	*line;
+// 	int		i;
 
-	i = 0;
-	line = get_next_line(fd);
-	while (line != NULL)
-	{
-		map->z_matrix[i] = malloc(sizeof(int) * map->width);
-		if (!map->z_matrix[i] || !fill_z_matrix(map->z_matrix[i], line))
-		{
-			free(line);
-			while (i > 0)
-			{
-				i--;
-				free(map->z_matrix[i]);
-			}
-			return (0);
-		}
-		free(line);
-		i++;
-		line = get_next_line(fd);
-	}
-	return (1);
-}
+// 	i = 0;
+// 	line = get_next_line(fd);
+// 	while (line != NULL)
+// 	{
+// 		map->z_matrix[i] = malloc(sizeof(int) * map->width);
+// 		if (!map->z_matrix[i] || !fill_z_matrix(map->z_matrix[i], line))
+// 		{
+// 			free(line);
+// 			while (i > 0)
+// 			{
+// 				i--;
+// 				free(map->z_matrix[i]);
+// 			}
+// 			return (0);
+// 		}
+// 		free(line);
+// 		i++;
+// 		line = get_next_line(fd);
+// 	}
+// 	return (1);
+// }
 
 static t_vertex	parse_vertex(char *token, int x, int y)
 {
@@ -86,7 +86,7 @@ static t_vertex	parse_vertex(char *token, int x, int y)
 	char		*z_str;
 	char		*color_str;
 
-	point.position = vec3_create(x, y, 0);
+	point.position = vec3f_create(x, y, 0);
 	point.color = create_color_rgb(255, 255, 255);
 	comma_pos = ft_strchr(token, ',');
 	if (comma_pos != NULL)
@@ -184,16 +184,16 @@ int	parse_map(const char *filename, t_map *map)
 	close(fd);
 	if (map->height == 0 || map->width == 0)
 		return (ft_printf("No data found.\n"), 0);
-	map->z_matrix = malloc(sizeof(int *) * map->height);
+	// map->z_matrix = malloc(sizeof(int *) * map->height);
 	map->vertex = malloc(sizeof(t_vertex *) * map->height);
-	if (!map->z_matrix)
-		return (ft_printf("Memory allocation failed\n"), 0);
+	// if (!map->z_matrix)
+	// 	return (ft_printf("Memory allocation failed\n"), 0);
 	if (!map->vertex)
 		return (ft_printf("Memory allocation failed\n"), 0);
 	fd = open(filename, O_RDONLY);
-	if (fd < 0 || !parse_lines(map, fd))
-		return (ft_printf("Error: Failed to parse z_matrix\n"), close(fd), 0);
-	close(fd);
+	// if (fd < 0 || !parse_lines(map, fd))
+	// 	return (ft_printf("Error: Failed to parse z_matrix\n"), close(fd), 0);
+	// close(fd);
 	fd = open(filename, O_RDONLY);
 	if (fd < 0 || !parse_lines_2(map, fd))
 		return (ft_printf("Error: Failed to parse map_point\n"), close(fd), 0);

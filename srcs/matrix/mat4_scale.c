@@ -6,13 +6,13 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 17:49:41 by welee             #+#    #+#             */
-/*   Updated: 2024/08/24 16:33:58 by welee            ###   ########.fr       */
+/*   Updated: 2024/08/25 20:17:07 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "matrix.h"
 
-t_mat4	mat4_scale(t_scale scale)
+t_mat4	mat4_scale(t_scaling scale)
 {
 	t_mat4	mat;
 

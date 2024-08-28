@@ -1,28 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vec_dot.c                                          :+:      :+:    :+:   */
+/*   update_scaling.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/21 17:55:33 by welee             #+#    #+#             */
-/*   Updated: 2024/08/28 19:32:51 by welee            ###   ########.fr       */
+/*   Created: 2024/08/22 19:09:00 by welee             #+#    #+#             */
+/*   Updated: 2024/08/25 20:18:17 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "vector.h"
+#include "transform.h"
 
-int		vec2i_dot(t_vec2i v1, t_vec2i v2)
+void	update_scaling(t_mat4 *transform, t_scaling scaling)
 {
-	return (v1.x * v2.x + v1.y * v2.y);
-}
+	t_mat4	mat_scaling;
 
-float	vec2f_dot(t_vec2f v1, t_vec2f v2)
-{
-	return (v1.x * v2.x + v1.y * v2.y);
-}
-
-float	vec3f_dot(t_vec3f v1, t_vec3f v2)
-{
-	return (v1.x * v2.x + v1.y * v2.y + v1.z * v2.z);
+	mat_scaling = mat4_scale(scaling);
+	*transform = mat4_multiply(*transform, mat_scaling);
 }

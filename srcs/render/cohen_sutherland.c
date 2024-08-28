@@ -6,7 +6,7 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 23:59:37 by welee             #+#    #+#             */
-/*   Updated: 2024/08/24 17:51:39 by welee            ###   ########.fr       */
+/*   Updated: 2024/08/28 18:41:15 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 #define X_MAX WIN_WIDTH
 #define Y_MAX WIN_HEIGHT
 
-static int	compute_region_code(t_point p)
+static int	compute_region_code(t_vec2i p)
 {
 	int	code;
 
@@ -39,9 +39,9 @@ static int	compute_region_code(t_point p)
 	return (code);
 }
 
-static t_point	get_intersection(t_point s, t_point e, int code_out)
+static t_vec2i	get_intersection(t_vec2i s, t_vec2i e, int code_out)
 {
-	t_point	new_point;
+	t_vec2i	new_point;
 
 	new_point.x = 0;
 	new_point.y = 0;
@@ -68,16 +68,16 @@ static t_point	get_intersection(t_point s, t_point e, int code_out)
 	return (new_point);
 }
 
-static void	update_point(t_point *start, t_point *end, int *code, int code_out)
+static void	update_point(t_vec2i *start, t_vec2i *end, int *code, int code_out)
 {
-	t_point	new_point;
+	t_vec2i	new_point;
 
 	new_point = get_intersection(*start, *end, code_out);
 	*start = new_point;
 	*code = compute_region_code(*start);
 }
 
-int	cohen_sutherland_clip(t_point *start, t_point *end)
+int	cohen_sutherland_clip(t_vec2i *start, t_vec2i *end)
 {
 	int	code1;
 	int	code2;

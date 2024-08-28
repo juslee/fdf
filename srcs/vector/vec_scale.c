@@ -6,24 +6,33 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 17:55:07 by welee             #+#    #+#             */
-/*   Updated: 2024/08/22 12:53:50 by welee            ###   ########.fr       */
+/*   Updated: 2024/08/28 18:25:17 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vector.h"
 
-t_vec2	vec2_scale(t_vec2 v, int scalar)
+t_vec2i	vec2i_scale(t_vec2i v, int scalar)
 {
-	t_vec2	result;
+	t_vec2i	result;
 
 	result.x = v.x * scalar;
 	result.y = v.y * scalar;
 	return (result);
 }
 
-t_vec3	vec3_scale(t_vec3 v, int scalar)
+t_vec2f	vec2f_scale(t_vec2f v, int scalar)
 {
-	t_vec3	result;
+	t_vec2f	result;
+
+	result.x = v.x * scalar;
+	result.y = v.y * scalar;
+	return (result);
+}
+
+t_vec3f	vec3f_scale(t_vec3f v, int scalar)
+{
+	t_vec3f	result;
 
 	result.x = v.x * scalar;
 	result.y = v.y * scalar;

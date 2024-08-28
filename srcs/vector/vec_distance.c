@@ -6,14 +6,24 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 17:52:12 by welee             #+#    #+#             */
-/*   Updated: 2024/08/22 13:08:02 by welee            ###   ########.fr       */
+/*   Updated: 2024/08/28 18:34:49 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vector.h"
 #include <math.h>
 
-float	vec2_distance(t_vec2 v1, t_vec2 v2)
+float	vec2i_distance(t_vec2i v1, t_vec2i v2)
+{
+	int	dx;
+	int	dy;
+
+	dx = v1.x - v2.x;
+	dy = v1.y - v2.y;
+	return (sqrt(dx * dx + dy * dy));
+}
+
+float	vec2f_distance(t_vec2f v1, t_vec2f v2)
 {
 	int	dx;
 	int	dy;
@@ -23,7 +33,7 @@ float	vec2_distance(t_vec2 v1, t_vec2 v2)
 	return (sqrtf(dx * dx + dy * dy));
 }
 
-float	vec3_distance(t_vec3 v1, t_vec3 v2)
+float	vec3f_distance(t_vec3f v1, t_vec3f v2)
 {
 	int	dx;
 	int	dy;
