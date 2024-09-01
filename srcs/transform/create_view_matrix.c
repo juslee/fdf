@@ -6,11 +6,12 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/25 12:46:57 by welee             #+#    #+#             */
-/*   Updated: 2024/08/27 17:44:37 by welee            ###   ########.fr       */
+/*   Updated: 2024/09/01 12:56:47 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "transform.h"
+#include "matrix.h"
 
 t_mat4	create_view_matrix(t_translation translation,
 	t_rotation rotation, t_scaling scaling)
@@ -27,3 +28,8 @@ t_mat4	create_view_matrix(t_translation translation,
 			mat4_multiply(rotate_matrix, scale_matrix));
 	return (view_matrix);
 }
+
+// t_mat4	create_view_matrix(t_vec3f eye, t_vec3f center, t_vec3f up)
+// {
+// 	return (mat4_lookat(eye, center, up));
+// }

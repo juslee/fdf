@@ -6,7 +6,7 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 16:54:07 by welee             #+#    #+#             */
-/*   Updated: 2024/08/28 18:07:57 by welee            ###   ########.fr       */
+/*   Updated: 2024/08/30 18:00:52 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,10 @@ t_mat4	mat4_rotate_z(float angle);
 t_mat4	mat4_rotate(t_rotation angle);
 t_mat4	mat4_orthographic(t_map_x map_x,
 			t_map_y map_y, t_elevation elevation);
+t_mat4	mat4_lookat(t_vec3f eye, t_vec3f center, t_vec3f up);
+t_mat4	mat4_perspective(float fov, float aspect_ratio,
+			float near, float far);
+t_mat4	mat4_isometric(void);
 t_vec3f	mat4_apply_to_vec3(t_mat4 m, t_vec3f v);
 
 #endif

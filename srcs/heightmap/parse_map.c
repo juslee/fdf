@@ -6,7 +6,7 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 13:37:04 by welee             #+#    #+#             */
-/*   Updated: 2024/08/28 19:28:16 by welee            ###   ########.fr       */
+/*   Updated: 2024/08/30 17:35:53 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,36 @@ static int	get_width(const char *line)
 	}
 	return (free(split), width);
 }
+
+static int	get_min_max_elevation(char *line, int *min_elevation, int *max_elevation)
+{
+	char	**tokens;
+	int		i;
+	int		elevation;
+	char	*comma_pos;
+
+	tokens = ft_split(line, ' ');
+	if (!tokens)
+		return (0);
+	i = 0;
+	while (tokens[i] != NULL)
+	{
+		comma_pos = ft_strchr(tokens[i], ',');
+		if (comma_pos != NULL)
+			*comma_pos = '\0'; // Remove the color part
+
+		elevation = ft_atoi(tokens[i]);
+		if (elevation < *min_elevation)
+			*min_elevation = elevation;
+		if (elevation > *max_elevation)
+			*max_elevation = elevation;
+		free(tokens[i]);
+		i++;
+	}
+	free(tokens);
+	return (1);
+}
+
 
 // static int	fill_z_matrix(int *z_line, char *line)
 // {
@@ -85,6 +115,7 @@ static t_vertex	parse_vertex(char *token, int x, int y)
 	char		*comma_pos;
 	char		*z_str;
 	char		*color_str;
+	char		*newline_pos;
 
 	point.position = vec3f_create(x, y, 0);
 	point.color = create_color_rgb(255, 255, 255);
@@ -94,13 +125,14 @@ static t_vertex	parse_vertex(char *token, int x, int y)
 		*comma_pos = '\0';
 		z_str = token;
 		color_str = comma_pos + 1;
+		newline_pos = ft_strchr(color_str, '\n');
+		if (newline_pos)
+			*newline_pos = '\0';
 		point.position.z = ft_atoi(z_str);
 		point.color = parse_color(color_str);
 	}
 	else
-	{
 		point.position.z = ft_atoi(token);
-	}
 	return (point);
 }
 
@@ -164,6 +196,8 @@ static int	handle_line(t_map *map, int fd)
 		if (map->width == -1)
 			map->width = current_width;
 		else if (current_width != map->width)
+			return (free(line), 0);
+		if (!get_min_max_elevation(line, &map->min_elevation, &map->max_elevation))
 			return (free(line), 0);
 		map->height++;
 		free(line);

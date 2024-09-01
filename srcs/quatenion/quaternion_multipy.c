@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   isometric.c                                        :+:      :+:    :+:   */
+/*   quaternion_multipy.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/15 15:09:42 by welee             #+#    #+#             */
-/*   Updated: 2024/08/29 13:55:03 by welee            ###   ########.fr       */
+/*   Created: 2024/08/30 12:43:14 by welee             #+#    #+#             */
+/*   Updated: 2024/08/30 12:43:24 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
-#include <math.h>
+#include "quaternion.h"
 
-t_vec2i	isometric_projection(int x, int y, int z)
+t_quaternion	quaternion_multiply(t_quaternion q1, t_quaternion q2)
 {
-	t_vec2i	result;
-	double	angle_x;
-	double	angle_y;
+	t_quaternion	result;
 
-	angle_y = M_PI / 4;
-	angle_x = M_PI / 6;
-	result.x = (x - y) * cos(angle_x);
-	result.y = (x + y) * sin(angle_y) - z;
+	result.w = q1.w * q2.w - q1.x * q2.x - q1.y * q2.y - q1.z * q2.z;
+	result.x = q1.w * q2.x + q1.x * q2.w + q1.y * q2.z - q1.z * q2.y;
+	result.y = q1.w * q2.y - q1.x * q2.z + q1.y * q2.w + q1.z * q2.x;
+	result.z = q1.w * q2.z + q1.x * q2.y - q1.y * q2.x + q1.z * q2.w;
 	return (result);
 }

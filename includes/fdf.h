@@ -6,7 +6,7 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 17:36:06 by welee             #+#    #+#             */
-/*   Updated: 2024/08/28 18:12:12 by welee            ###   ########.fr       */
+/*   Updated: 2024/08/29 15:38:03 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include "heightmap.h"
 # include "matrix.h"
-# include "utils.h"
 # include "mlx.h"
 # include "libft.h"
 # include "get_next_line.h"
@@ -40,15 +39,6 @@ typedef struct s_pixel
 	double	brightness;
 	t_color	color;
 }	t_pixel;
-
-typedef struct s_bresenham
-{
-	int	dx;
-	int	dy;
-	int	sx;
-	int	sy;
-	int	err;
-}	t_bresenham;
 
 typedef struct s_wu
 {
@@ -75,14 +65,5 @@ typedef struct s_fdf
 	int			offset_x;
 	int			offset_y;
 }	t_fdf;
-
-// Function prototypes
-int		init(t_fdf *fdf, t_map *map);
-void	put_pixel(t_buffer *img, t_vec2i p, t_color color, double brightness);
-void	bresenham_line(t_buffer *img, t_pixel start, t_pixel end);
-int		cohen_sutherland_clip(t_vec2i *start, t_vec2i *end);
-void	wu_line(t_buffer *img, t_vec2i start, t_vec2i end, int color);
-void	hook_events(t_fdf *fdf);
-void	cleanup(t_fdf *fdf);
 
 #endif

@@ -6,11 +6,12 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 14:38:56 by welee             #+#    #+#             */
-/*   Updated: 2024/08/28 18:57:14 by welee            ###   ########.fr       */
+/*   Updated: 2024/09/01 14:25:47 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
+#include "render.h"
 #include <stdio.h>
 
 static void	init_bresenham(t_bresenham *b, t_vec2i start, t_vec2i end)

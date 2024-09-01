@@ -6,7 +6,7 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/07 12:31:52 by welee             #+#    #+#             */
-/*   Updated: 2024/08/28 18:07:57 by welee            ###   ########.fr       */
+/*   Updated: 2024/08/30 17:22:51 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,15 +29,16 @@
 typedef struct s_vertex
 {
 	t_vec3f	position;
-	// t_vec2	projection; // Not used
 	t_color	color;
 }	t_vertex;
 
+//
 typedef struct s_map
 {
 	int			width;
 	int			height;
-	int			**z_matrix;
+	int			max_elevation;
+	int			min_elevation;
 	t_vertex	**vertex;
 }	t_map;
 

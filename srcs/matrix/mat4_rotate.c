@@ -6,11 +6,12 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 17:50:22 by welee             #+#    #+#             */
-/*   Updated: 2024/08/24 16:52:56 by welee            ###   ########.fr       */
+/*   Updated: 2024/08/30 13:23:35 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "matrix.h"
+#include "quaternion.h"
 #include <math.h>
 
 t_mat4	mat4_rotate_x(float angle)
@@ -75,3 +76,28 @@ t_mat4	mat4_rotate(t_rotation angle)
 	result = mat4_multiply(result, rotation_z);
 	return (result);
 }
+
+// t_mat4	mat4_rotate(t_rotation angle)
+// {
+// 	t_quaternion	q_x;
+// 	t_quaternion	q_y;
+// 	t_quaternion	q_z;
+// 	t_quaternion	q_combined;
+// 	t_mat4			rotation_matrix;
+
+// 	// Convert Euler angles to quaternions for each axis
+// 	q_x = euler_to_quaternion(angle.angle_x, 0, 0);
+// 	q_y = euler_to_quaternion(0, angle.angle_y, 0);
+// 	q_z = euler_to_quaternion(0, 0, angle.angle_z);
+
+// 	// Combine the quaternions by multiplying them
+// 	q_combined = quaternion_multiply(q_z, quaternion_multiply(q_y, q_x));
+
+// 	// Normalize the resulting quaternion to ensure it represents a valid rotation
+// 	q_combined = quaternion_normalize(q_combined);
+
+// 	// Convert the final quaternion to a rotation matrix
+// 	rotation_matrix = quaternion_to_mat4(q_combined);
+
+// 	return (rotation_matrix);
+// }
