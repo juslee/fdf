@@ -6,7 +6,7 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 18:53:14 by welee             #+#    #+#             */
-/*   Updated: 2024/09/02 09:46:25 by welee            ###   ########.fr       */
+/*   Updated: 2024/09/02 11:23:26 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,11 @@
 // 	free(map);
 // }
 
+/**
+ * @brief Free the map points
+ *
+ * @param map The map
+ */
 void	free_map_point(t_map *map)
 {
 	int	y;

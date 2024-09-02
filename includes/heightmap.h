@@ -6,7 +6,7 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/07 12:31:52 by welee             #+#    #+#             */
-/*   Updated: 2024/09/02 10:14:49 by welee            ###   ########.fr       */
+/*   Updated: 2024/09/02 11:25:15 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	free_map_point(t_map *map);
 int		handle_line(t_map *map, int fd);
 
 // Debugging Prototypes
-void	print_map(t_map *map);
-void	print_vertex(t_map *map);
+// void	print_map(t_map *map);
+// void	print_vertex(t_map *map);
 
 #endif
