@@ -6,7 +6,7 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 13:37:04 by welee             #+#    #+#             */
-/*   Updated: 2024/08/30 17:35:53 by welee            ###   ########.fr       */
+/*   Updated: 2024/09/02 09:46:59 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,52 +17,34 @@
 #include <fcntl.h>
 #include <unistd.h>
 
-static int	get_width(const char *line)
-{
-	char	**split;
-	int		width;
+// static int	get_min_max_elevation(char *line, int *min_elevation,
+// int *max_elevation)
+// {
+// 	char	**tokens;
+// 	int		i;
+// 	int		elevation;
+// 	char	*comma_pos;
 
-	split = ft_split(line, ' ');
-	if (!split)
-		return (-1);
-	width = 0;
-	while (split[width])
-	{
-		free(split[width]);
-		width++;
-	}
-	return (free(split), width);
-}
-
-static int	get_min_max_elevation(char *line, int *min_elevation, int *max_elevation)
-{
-	char	**tokens;
-	int		i;
-	int		elevation;
-	char	*comma_pos;
-
-	tokens = ft_split(line, ' ');
-	if (!tokens)
-		return (0);
-	i = 0;
-	while (tokens[i] != NULL)
-	{
-		comma_pos = ft_strchr(tokens[i], ',');
-		if (comma_pos != NULL)
-			*comma_pos = '\0'; // Remove the color part
-
-		elevation = ft_atoi(tokens[i]);
-		if (elevation < *min_elevation)
-			*min_elevation = elevation;
-		if (elevation > *max_elevation)
-			*max_elevation = elevation;
-		free(tokens[i]);
-		i++;
-	}
-	free(tokens);
-	return (1);
-}
-
+// 	tokens = ft_split(line, ' ');
+// 	if (!tokens)
+// 		return (0);
+// 	i = 0;
+// 	while (tokens[i] != NULL)
+// 	{
+// 		comma_pos = ft_strchr(tokens[i], ',');
+// 		if (comma_pos != NULL)
+// 			*comma_pos = '\0'; // Remove the color part
+// 		elevation = ft_atoi(tokens[i]);
+// 		if (elevation < *min_elevation)
+// 			*min_elevation = elevation;
+// 		if (elevation > *max_elevation)
+// 			*max_elevation = elevation;
+// 		free(tokens[i]);
+// 		i++;
+// 	}
+// 	free(tokens);
+// 	return (1);
+// }
 
 // static int	fill_z_matrix(int *z_line, char *line)
 // {
@@ -154,7 +136,7 @@ static int	fill_vertex(t_vertex *map_row, char *line, int y)
 	return (free(tokens), 1);
 }
 
-static int	parse_lines_2(t_map *map, int fd)
+static int	parse_lines(t_map *map, int fd)
 {
 	char	*line;
 	int		y;
@@ -182,30 +164,13 @@ static int	parse_lines_2(t_map *map, int fd)
 	return (1);
 }
 
-static int	handle_line(t_map *map, int fd)
-{
-	char	*line;
-	int		current_width;
-
-	map->height = 0;
-	map->width = -1;
-	line = get_next_line(fd);
-	while (line != NULL)
-	{
-		current_width = get_width(line);
-		if (map->width == -1)
-			map->width = current_width;
-		else if (current_width != map->width)
-			return (free(line), 0);
-		if (!get_min_max_elevation(line, &map->min_elevation, &map->max_elevation))
-			return (free(line), 0);
-		map->height++;
-		free(line);
-		line = get_next_line(fd);
-	}
-	return (1);
-}
-
+/**
+ * @brief Parse the map file and store the data in the map struct
+ *
+ * @param filename The name of the file to parse
+ * @param map The map struct to store the data
+ * @return int 1 if the parsing was successful, 0 otherwise
+ */
 int	parse_map(const char *filename, t_map *map)
 {
 	int	fd;
@@ -218,18 +183,12 @@ int	parse_map(const char *filename, t_map *map)
 	close(fd);
 	if (map->height == 0 || map->width == 0)
 		return (ft_printf("No data found.\n"), 0);
-	// map->z_matrix = malloc(sizeof(int *) * map->height);
 	map->vertex = malloc(sizeof(t_vertex *) * map->height);
-	// if (!map->z_matrix)
-	// 	return (ft_printf("Memory allocation failed\n"), 0);
 	if (!map->vertex)
 		return (ft_printf("Memory allocation failed\n"), 0);
 	fd = open(filename, O_RDONLY);
-	// if (fd < 0 || !parse_lines(map, fd))
-	// 	return (ft_printf("Error: Failed to parse z_matrix\n"), close(fd), 0);
-	// close(fd);
 	fd = open(filename, O_RDONLY);
-	if (fd < 0 || !parse_lines_2(map, fd))
+	if (fd < 0 || !parse_lines(map, fd))
 		return (ft_printf("Error: Failed to parse map_point\n"), close(fd), 0);
 	return (close(fd), 1);
 }

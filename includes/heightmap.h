@@ -6,7 +6,7 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/07 12:31:52 by welee             #+#    #+#             */
-/*   Updated: 2024/08/30 17:22:51 by welee            ###   ########.fr       */
+/*   Updated: 2024/09/02 10:14:49 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,9 @@ typedef struct s_map
 ** Function Prototypes
 */
 int		parse_map(const char *filename, t_map *map);
-void	free_map(t_map *map);
+// void	free_map(t_map *map);
 void	free_map_point(t_map *map);
+int		handle_line(t_map *map, int fd);
 
 // Debugging Prototypes
 void	print_map(t_map *map);

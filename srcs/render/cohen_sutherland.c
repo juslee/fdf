@@ -6,7 +6,7 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 23:59:37 by welee             #+#    #+#             */
-/*   Updated: 2024/08/28 18:41:15 by welee            ###   ########.fr       */
+/*   Updated: 2024/09/02 11:01:24 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,11 @@ static int	compute_region_code(t_vec2i p)
 	code = INSIDE;
 	if (p.x < X_MIN)
 		code |= LEFT;
-	else if (p.x > X_MAX)
+	else if (p.x > X_MAX - 1)
 		code |= RIGHT;
 	if (p.y < Y_MIN)
 		code |= BOTTOM;
-	else if (p.y > Y_MAX)
+	else if (p.y > Y_MAX - 1)
 		code |= TOP;
 	return (code);
 }
@@ -47,8 +47,8 @@ static t_vec2i	get_intersection(t_vec2i s, t_vec2i e, int code_out)
 	new_point.y = 0;
 	if (code_out & TOP)
 	{
-		new_point.x = s.x + (e.x - s.x) * (Y_MAX - s.y) / (e.y - s.y);
-		new_point.y = Y_MAX;
+		new_point.x = s.x + (e.x - s.x) * (Y_MAX - 1 - s.y) / (e.y - s.y);
+		new_point.y = Y_MAX - 1;
 	}
 	else if (code_out & BOTTOM)
 	{
@@ -57,8 +57,8 @@ static t_vec2i	get_intersection(t_vec2i s, t_vec2i e, int code_out)
 	}
 	else if (code_out & RIGHT)
 	{
-		new_point.y = s.y + (e.y - s.y) * (X_MAX - s.x) / (e.x - s.x);
-		new_point.x = X_MAX;
+		new_point.y = s.y + (e.y - s.y) * (X_MAX - 1 - s.x) / (e.x - s.x);
+		new_point.x = X_MAX - 1;
 	}
 	else if (code_out & LEFT)
 	{

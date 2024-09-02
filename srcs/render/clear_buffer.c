@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   create_projection_matrix.c                         :+:      :+:    :+:   */
+/*   clear_buffer.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/25 20:54:02 by welee             #+#    #+#             */
-/*   Updated: 2024/09/02 09:38:07 by welee            ###   ########.fr       */
+/*   Created: 2024/09/02 10:20:52 by welee             #+#    #+#             */
+/*   Updated: 2024/09/02 10:21:27 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "transform.h"
-#include <math.h>
+#include "render.h"
 
-/**
- * @brief Create a projection matrix for isometric view
- *
- * @return t_mat4
- */
-t_mat4	create_isometric_projection_matrix(void)
+void	clear_image(t_buffer *buf, int width, int height)
 {
-	return (mat4_isometric());
-}
+	t_vec2i	p;
+	t_color	color;
 
-// t_mat4	create_parallel_projection_matrix(t_map_x map_x, t_map_y map_y,
-// 	t_elevation elevation)
-// {
-// 	return (mat4_orthographic(map_x, map_y, elevation));
-// }
+	color = create_color_rgb(0, 0, 0);
+	p.y = -1;
+	while (p.y++ < height)
+	{
+		p.x = -1;
+		while (p.x++ < width)
+		{
+			put_pixel(buf, p, color, 1.0);
+		}
+	}
+}

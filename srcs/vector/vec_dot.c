@@ -6,13 +6,13 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 17:55:33 by welee             #+#    #+#             */
-/*   Updated: 2024/08/28 19:32:51 by welee            ###   ########.fr       */
+/*   Updated: 2024/09/02 09:39:29 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vector.h"
 
-int		vec2i_dot(t_vec2i v1, t_vec2i v2)
+int	vec2i_dot(t_vec2i v1, t_vec2i v2)
 {
 	return (v1.x * v2.x + v1.y * v2.y);
 }

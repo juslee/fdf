@@ -1,30 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   create_projection_matrix.c                         :+:      :+:    :+:   */
+/*   close_window.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/25 20:54:02 by welee             #+#    #+#             */
-/*   Updated: 2024/09/02 09:38:07 by welee            ###   ########.fr       */
+/*   Created: 2024/09/02 09:58:07 by welee             #+#    #+#             */
+/*   Updated: 2024/09/02 09:58:35 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "transform.h"
-#include <math.h>
+#include "utils.h"
+#include "mlx.h"
 
-/**
- * @brief Create a projection matrix for isometric view
- *
- * @return t_mat4
- */
-t_mat4	create_isometric_projection_matrix(void)
+int	close_window(t_fdf *fdf)
 {
-	return (mat4_isometric());
+	mlx_destroy_window(fdf->mlx, fdf->win);
+	exit(0);
+	return (0);
 }
-
-// t_mat4	create_parallel_projection_matrix(t_map_x map_x, t_map_y map_y,
-// 	t_elevation elevation)
-// {
-// 	return (mat4_orthographic(map_x, map_y, elevation));
-// }

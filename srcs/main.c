@@ -6,7 +6,7 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 16:54:52 by welee             #+#    #+#             */
-/*   Updated: 2024/08/29 16:29:12 by welee            ###   ########.fr       */
+/*   Updated: 2024/09/02 10:11:04 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,5 @@ int	main(int argc, char **argv)
 	mlx_hook(fdf.win, 2, 1L << 0, handle_keypress, &fdf);
 	mlx_hook(fdf.win, 17, 1L << 17, close_window, &fdf);
 	mlx_loop(fdf.mlx);
-	return (free_map(&map), EXIT_SUCCESS);
+	return (free_map_point(&map), EXIT_SUCCESS);
 }
