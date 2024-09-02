@@ -6,7 +6,7 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 13:40:45 by welee             #+#    #+#             */
-/*   Updated: 2024/09/02 10:24:40 by welee            ###   ########.fr       */
+/*   Updated: 2024/09/02 11:35:54 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,6 +119,14 @@ void	draw_map_vertex(t_buffer *buf, t_vertex vertex[2],
 // 	bresenham_line(buf, end, start);
 // }
 
+/**
+ * @brief Draw a horizontal line
+ *
+ * @param fdf The fdf struct
+ * @param mvp_matrix The mvp matrix
+ * @param y The y coordinate
+ * @param x The x coordinate
+ */
 void	draw_horizontal_line(t_fdf *fdf, t_mat4 mvp_matrix, int y, int x)
 {
 	t_vertex	vertex[2];
@@ -131,6 +139,14 @@ void	draw_horizontal_line(t_fdf *fdf, t_mat4 mvp_matrix, int y, int x)
 	}
 }
 
+/**
+ * @brief Draw a vertical line
+ *
+ * @param fdf The fdf struct
+ * @param mvp_matrix The mvp matrix
+ * @param y The y position
+ * @param x The x position
+*/
 void	draw_vertical_line(t_fdf *fdf, t_mat4 mvp_matrix, int y, int x)
 {
 	t_vertex	vertex[2];
@@ -143,6 +159,12 @@ void	draw_vertical_line(t_fdf *fdf, t_mat4 mvp_matrix, int y, int x)
 	}
 }
 
+/**
+ * @brief Render the fdf
+ *
+ * @param fdf The fdf struct
+ * @return int 0 if success
+ */
 int	render(t_fdf *fdf)
 {
 	t_mat4		mvp_matrix;
@@ -164,9 +186,15 @@ int	render(t_fdf *fdf)
 	return (0);
 }
 
+/**
+ * @brief Main loop for the fdf
+ *
+ * @param fdf The fdf struct
+ * @return int 0 if success
+ */
 int	main_loop(t_fdf *fdf)
 {
-	clear_image(&fdf->buffer, fdf->width, fdf->height);
+	clear_buffer(&fdf->buffer, fdf->width, fdf->height);
 	render(fdf);
 	mlx_put_image_to_window(fdf->mlx, fdf->win, fdf->buffer.img, 0, 0);
 	return (0);

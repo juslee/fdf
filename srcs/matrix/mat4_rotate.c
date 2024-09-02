@@ -6,7 +6,7 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 17:50:22 by welee             #+#    #+#             */
-/*   Updated: 2024/09/01 17:07:22 by welee            ###   ########.fr       */
+/*   Updated: 2024/09/02 12:59:16 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,12 @@
 #include "quaternion.h"
 #include <math.h>
 
+/**
+ * @brief Create a rotation matrix around the x-axis
+ *
+ * @param angle the angle to be rotated
+ * @return t_mat4 The rotation matrix
+ */
 t_mat4	mat4_rotate_x(float angle)
 {
 	t_mat4	mat;
@@ -30,6 +36,12 @@ t_mat4	mat4_rotate_x(float angle)
 	return (mat);
 }
 
+/**
+ * @brief Create a rotation matrix around the y-axis
+ *
+ * @param angle the angle to be rotated
+ * @return t_mat4 The rotation matrix
+ */
 t_mat4	mat4_rotate_y(float angle)
 {
 	t_mat4	mat;
@@ -46,6 +58,12 @@ t_mat4	mat4_rotate_y(float angle)
 	return (mat);
 }
 
+/**
+ * @brief Create a rotation matrix around the z-axis
+ *
+ * @param angle the angle to be rotated
+ * @return t_mat4 The rotation matrix
+ */
 t_mat4	mat4_rotate_z(float angle)
 {
 	t_mat4	mat;
@@ -62,6 +80,12 @@ t_mat4	mat4_rotate_z(float angle)
 	return (mat);
 }
 
+/**
+ * @brief Create a rotation matrix
+ *
+ * @param angle the angle to be rotated
+ * @return t_mat4 The rotation matrix
+ */
 t_mat4	mat4_rotate(t_rotation angle)
 {
 	t_mat4	rotation_x;

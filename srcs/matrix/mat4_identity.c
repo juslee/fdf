@@ -6,12 +6,17 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 17:46:17 by welee             #+#    #+#             */
-/*   Updated: 2024/08/24 16:52:25 by welee            ###   ########.fr       */
+/*   Updated: 2024/09/02 12:57:41 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "matrix.h"
 
+/**
+ * @brief Create an identity matrix
+ *
+ * @return t_mat4 The identity matrix
+ */
 t_mat4	mat4_identity(void)
 {
 	t_mat4	mat;

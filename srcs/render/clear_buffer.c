@@ -6,13 +6,20 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 10:20:52 by welee             #+#    #+#             */
-/*   Updated: 2024/09/02 10:21:27 by welee            ###   ########.fr       */
+/*   Updated: 2024/09/02 11:35:40 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "render.h"
 
-void	clear_image(t_buffer *buf, int width, int height)
+/**
+ * @brief Clear the buffer
+ *
+ * @param buf The buffer
+ * @param width The width of the buffer
+ * @param height The height of the buffer
+ */
+void	clear_buffer(t_buffer *buf, int width, int height)
 {
 	t_vec2i	p;
 	t_color	color;

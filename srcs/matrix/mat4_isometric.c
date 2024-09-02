@@ -6,13 +6,18 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/30 17:54:52 by welee             #+#    #+#             */
-/*   Updated: 2024/09/02 10:31:29 by welee            ###   ########.fr       */
+/*   Updated: 2024/09/02 12:57:57 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "matrix.h"
 #include <math.h>
 
+/**
+ * @brief Create an isometric matrix
+ *
+ * @return t_mat4 The isometric matrix
+ */
 t_mat4	mat4_isometric(void)
 {
 	t_mat4	rotate_x;

@@ -6,12 +6,20 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 15:33:42 by welee             #+#    #+#             */
-/*   Updated: 2024/08/28 19:14:56 by welee            ###   ########.fr       */
+/*   Updated: 2024/09/02 12:58:26 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "matrix.h"
 
+/**
+ * @brief Create an orthographic matrix
+ *
+ * @param map_x The x-axis map
+ * @param map_y The y-axis map
+ * @param elevation The elevation map
+ * @return t_mat4 The orthographic matrix
+ */
 t_mat4	mat4_orthographic(t_map_x map_x, t_map_y map_y, t_elevation elevation)
 {
 	t_mat4	result;

@@ -6,12 +6,20 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/30 14:55:26 by welee             #+#    #+#             */
-/*   Updated: 2024/09/02 09:37:17 by welee            ###   ########.fr       */
+/*   Updated: 2024/09/02 12:58:09 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "matrix.h"
 
+/**
+ * @brief Create a lookat matrix
+ *
+ * @param eye The eye position
+ * @param center The center position
+ * @param up The up vector
+ * @return t_mat4 The lookat matrix
+ */
 t_mat4	mat4_lookat(t_vec3f eye, t_vec3f center, t_vec3f up)
 {
 	t_vec3f	f;

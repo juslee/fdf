@@ -6,13 +6,21 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/25 12:46:57 by welee             #+#    #+#             */
-/*   Updated: 2024/09/01 12:56:47 by welee            ###   ########.fr       */
+/*   Updated: 2024/09/02 12:48:55 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "transform.h"
 #include "matrix.h"
 
+/**
+ * @brief Create a view matrix
+ *
+ * @param translation The translation
+ * @param rotation The rotation
+ * @param scaling The scaling
+ * @return t_mat4 The view matrix
+ */
 t_mat4	create_view_matrix(t_translation translation,
 	t_rotation rotation, t_scaling scaling)
 {

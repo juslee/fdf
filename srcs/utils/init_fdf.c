@@ -6,7 +6,7 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 10:06:18 by welee             #+#    #+#             */
-/*   Updated: 2024/09/02 09:51:01 by welee            ###   ########.fr       */
+/*   Updated: 2024/09/02 13:00:45 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,13 @@
 #include <math.h>
 #include <stdlib.h>
 
+/**
+ * @brief Initialize the fdf structure
+ *
+ * @param fdf The fdf structure
+ * @param map The map structure
+ * @return int 1 if success, 0 if failed
+ */
 int	init_fdf(t_fdf *fdf, t_map *map)
 {
 	fdf->width = WIN_WIDTH;

@@ -6,7 +6,7 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/25 20:54:02 by welee             #+#    #+#             */
-/*   Updated: 2024/09/02 09:38:07 by welee            ###   ########.fr       */
+/*   Updated: 2024/09/02 12:49:05 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 /**
  * @brief Create a projection matrix for isometric view
  *
- * @return t_mat4
+ * @return t_mat4 The projection matrix
  */
 t_mat4	create_isometric_projection_matrix(void)
 {

@@ -6,7 +6,7 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 14:38:56 by welee             #+#    #+#             */
-/*   Updated: 2024/09/01 14:25:47 by welee            ###   ########.fr       */
+/*   Updated: 2024/09/02 11:37:38 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,13 @@
 #include "render.h"
 #include <stdio.h>
 
+/**
+ * @brief Initialize Bresenham's algorithm
+ *
+ * @param b The Bresenham struct
+ * @param start The start point of the line
+ * @param end The end point of the line
+ */
 static void	init_bresenham(t_bresenham *b, t_vec2i start, t_vec2i end)
 {
 	b->dx = abs(end.x - start.x);
@@ -29,7 +36,15 @@ static void	init_bresenham(t_bresenham *b, t_vec2i start, t_vec2i end)
 	b->err = b->dx - b->dy;
 }
 
-static float	get_t(t_pixel start, t_pixel end, t_vec2i p)
+/**
+ * @brief Get the factor of a point on a line
+ *
+ * @param start The start point of the line
+ * @param end The end point of the line
+ * @param p The point
+ * @return float The factor
+ */
+static float	get_factor(t_pixel start, t_pixel end, t_vec2i p)
 {
 	float	total_distance;
 	float	current_distance;
@@ -39,6 +54,13 @@ static float	get_t(t_pixel start, t_pixel end, t_vec2i p)
 	return (current_distance / total_distance);
 }
 
+/**
+ * @brief Draw a line using Bresenham's algorithm
+ *
+ * @param buf The buffer
+ * @param start The start point of the line
+ * @param end The end point of the line
+ */
 void	bresenham_line(t_buffer *buf, t_pixel start, t_pixel end)
 {
 	t_bresenham	b;
@@ -52,7 +74,7 @@ void	bresenham_line(t_buffer *buf, t_pixel start, t_pixel end)
 	while (p.x != end.point.x || p.y != end.point.y)
 	{
 		put_pixel(buf, p,
-			lerp_color(start.color, end.color, get_t(start, end, p)), 1.0);
+			lerp_color(start.color, end.color, get_factor(start, end, p)), 1.0);
 		err2 = 2 * b.err;
 		if (err2 > -b.dy)
 		{

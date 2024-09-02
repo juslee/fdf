@@ -6,12 +6,19 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 17:46:53 by welee             #+#    #+#             */
-/*   Updated: 2024/08/22 17:47:45 by welee            ###   ########.fr       */
+/*   Updated: 2024/09/02 12:58:16 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "matrix.h"
 
+/**
+ * @brief Multiply two 4x4 matrices
+ *
+ * @param a The first matrix
+ * @param b The second matrix
+ * @return t_mat4 The result of the multiplication
+ */
 t_mat4	mat4_multiply(t_mat4 a, t_mat4 b)
 {
 	t_mat4	result;

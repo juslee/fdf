@@ -6,7 +6,7 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 18:52:11 by welee             #+#    #+#             */
-/*   Updated: 2024/09/02 09:35:42 by welee            ###   ########.fr       */
+/*   Updated: 2024/09/02 13:45:51 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,13 @@
 # define TRANSFORM_H
 
 # include "matrix.h"
-# include "fdf.h"
+
+# define MAX_ANGLE_X M_PI
+# define MIN_ANGLE_X -M_PI
+# define MAX_ANGLE_Y M_PI
+# define MIN_ANGLE_Y -M_PI
+# define MAX_ANGLE_Z M_PI
+# define MIN_ANGLE_Z -M_PI
 
 t_translation	create_translation(float tx, float ty, float tz);
 t_scaling		create_scaling(float sx, float sy, float sz);

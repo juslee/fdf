@@ -6,12 +6,20 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/24 16:24:38 by welee             #+#    #+#             */
-/*   Updated: 2024/08/28 19:13:03 by welee            ###   ########.fr       */
+/*   Updated: 2024/09/02 12:49:41 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "transform.h"
 
+/**
+ * @brief Create a translation
+ *
+ * @param tx The translation x
+ * @param ty The translation y
+ * @param tz The translation z
+ * @return t_translation The translation
+ */
 t_translation	create_translation(float tx, float ty, float tz)
 {
 	t_translation	translation;
@@ -22,6 +30,14 @@ t_translation	create_translation(float tx, float ty, float tz)
 	return (translation);
 }
 
+/**
+ * @brief Create a scaling
+ *
+ * @param sx The scaling x
+ * @param sy The scaling y
+ * @param sz The scaling z
+ * @return t_scaling The scaling
+ */
 t_scaling	create_scaling(float sx, float sy, float sz)
 {
 	t_scaling	scaling;
@@ -32,6 +48,14 @@ t_scaling	create_scaling(float sx, float sy, float sz)
 	return (scaling);
 }
 
+/**
+ * @brief Create a rotation
+ *
+ * @param angle_x The angle x
+ * @param angle_y The angle y
+ * @param angle_z The angle z
+ * @return t_rotation The rotation
+ */
 t_rotation	create_rotation(float angle_x, float angle_y, float angle_z)
 {
 	t_rotation	rotation;
@@ -42,6 +66,14 @@ t_rotation	create_rotation(float angle_x, float angle_y, float angle_z)
 	return (rotation);
 }
 
+/**
+ * @brief Create a model matrix
+ *
+ * @param translation The translation
+ * @param rotation The rotation
+ * @param scaling The scaling
+ * @return t_mat4 The model matrix
+ */
 t_mat4	create_model_matrix(t_translation translation, t_rotation rotation,
 	t_scaling scaling)
 {

@@ -1,27 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   isometric.c                                        :+:      :+:    :+:   */
+/*   mat4_print.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/15 15:09:42 by welee             #+#    #+#             */
-/*   Updated: 2024/08/29 13:55:03 by welee            ###   ########.fr       */
+/*   Created: 2024/09/02 13:18:05 by welee             #+#    #+#             */
+/*   Updated: 2024/09/02 13:23:20 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
-#include <math.h>
+#include "matrix.h"
+#include "ft_printf.h"
+#include <stdio.h>
 
-t_vec2i	isometric_projection(int x, int y, int z)
+void	mat4_print(t_mat4 mat)
 {
-	t_vec2i	result;
-	double	angle_x;
-	double	angle_y;
+	int	i;
+	int	j;
 
-	angle_y = M_PI / 4;
-	angle_x = M_PI / 6;
-	result.x = (x - y) * cos(angle_x);
-	result.y = (x + y) * sin(angle_y) - z;
-	return (result);
+	i = 0;
+	while (i < 4)
+	{
+		j = 0;
+		while (j < 4)
+		{
+			printf("%f ", mat.m[i][j]);
+			j++;
+		}
+		printf("\n");
+		i++;
+	}
+	printf("\n");
 }

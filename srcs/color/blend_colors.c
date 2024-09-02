@@ -6,7 +6,7 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 14:41:46 by welee             #+#    #+#             */
-/*   Updated: 2024/09/02 11:20:59 by welee            ###   ########.fr       */
+/*   Updated: 2024/09/02 11:37:06 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,26 @@
 t_color	blend_colors(t_color c1, t_color c2)
 {
 	t_color	result;
-	float	alpha1;
-	float	alpha2;
+	float	a1;
+	float	a2;
+	float	out_alpha;
 
-	alpha1 = c1.a / 255.0f;
-	alpha2 = c2.a / 255.0f;
-	result.r = (int)((c1.r * alpha1) + (c2.r * (1 - alpha1)));
-	result.g = (int)((c1.g * alpha1) + (c2.g * (1 - alpha1)));
-	result.b = (int)((c1.b * alpha1) + (c2.b * (1 - alpha1)));
-	result.a = 255;
+	a1 = c1.a / 255.0f;
+	a2 = c2.a / 255.0f;
+	out_alpha = a1 + a2 * (1 - a1);
+	if (out_alpha > 0)
+	{
+		result.r = (int)((c1.r * a1 + c2.r * a2 * (1 - a1)) / out_alpha);
+		result.g = (int)((c1.g * a1 + c2.g * a2 * (1 - a1)) / out_alpha);
+		result.b = (int)((c1.b * a1 + c2.b * a2 * (1 - a1)) / out_alpha);
+		result.a = (int)(out_alpha * 255.0f);
+	}
+	else
+	{
+		result.r = 0;
+		result.g = 0;
+		result.b = 0;
+		result.a = 0;
+	}
 	return (result);
 }

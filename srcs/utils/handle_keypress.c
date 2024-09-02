@@ -6,7 +6,7 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/29 13:31:46 by welee             #+#    #+#             */
-/*   Updated: 2024/09/02 10:02:13 by welee            ###   ########.fr       */
+/*   Updated: 2024/09/02 13:00:33 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,13 @@
 #include "transform.h"
 #include <math.h>
 
+/**
+ * @brief Handle the scaling of the fdf
+ *
+ * @param keycode The key code
+ * @param fdf The fdf
+ * @return int The status
+ */
 int	handle_scaling(int keycode, t_fdf *fdf)
 {
 	if (keycode == PLUS_KEY)
@@ -24,6 +31,13 @@ int	handle_scaling(int keycode, t_fdf *fdf)
 	return (0);
 }
 
+/**
+ * @brief Handle the movement of the fdf
+ *
+ * @param keycode The key code
+ * @param fdf The fdf
+ * @return int The status
+ */
 int	handle_movement(int keycode, t_fdf *fdf)
 {
 	if (keycode == LEFT_KEY)
@@ -37,6 +51,13 @@ int	handle_movement(int keycode, t_fdf *fdf)
 	return (0);
 }
 
+/**
+ * @brief Handle the rotation of the fdf
+ *
+ * @param keycode The key code
+ * @param fdf The fdf
+ * @return int The status
+ */
 int	handle_rotation(int keycode, t_fdf *fdf)
 {
 	if (keycode == ROTATE_X_PLUS)
@@ -54,6 +75,13 @@ int	handle_rotation(int keycode, t_fdf *fdf)
 	return (0);
 }
 
+/**
+ * @brief Handle the orthographic projection of the fdf
+ *
+ * @param keycode The key code
+ * @param fdf The fdf
+ * @return int The status
+ */
 void	handle_orthographic_projection(int keycode, t_fdf *fdf)
 {
 	if (keycode == ORTHOGRAPHIC_PROJECTION_TOP)
@@ -83,6 +111,13 @@ void	handle_orthographic_projection(int keycode, t_fdf *fdf)
 	}
 }
 
+/**
+ * @brief Handle the key press
+ *
+ * @param keycode The key code
+ * @param fdf The fdf
+ * @return int The status
+ */
 int	handle_keypress(int keycode, t_fdf *fdf)
 {
 	if (keycode == ESC_KEY)
