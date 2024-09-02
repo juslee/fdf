@@ -6,12 +6,19 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 14:44:45 by welee             #+#    #+#             */
-/*   Updated: 2024/08/22 14:45:04 by welee            ###   ########.fr       */
+/*   Updated: 2024/09/02 11:21:07 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "color.h"
 
+/**
+ * @brief Adjust the brightness of a color
+ *
+ * @param color The color
+ * @param factor The brightness factor
+ * @return t_color The adjusted color
+ */
 t_color	adjust_brightness(t_color color, float factor)
 {
 	t_color	result;

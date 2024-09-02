@@ -6,12 +6,19 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 14:41:46 by welee             #+#    #+#             */
-/*   Updated: 2024/08/22 14:42:21 by welee            ###   ########.fr       */
+/*   Updated: 2024/09/02 11:20:59 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "color.h"
 
+/**
+ * @brief Blend two colors
+ *
+ * @param c1 The first color
+ * @param c2 The second color
+ * @return t_color The blended color
+ */
 t_color	blend_colors(t_color c1, t_color c2)
 {
 	t_color	result;

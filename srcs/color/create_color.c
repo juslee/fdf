@@ -6,12 +6,21 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 15:35:36 by welee             #+#    #+#             */
-/*   Updated: 2024/08/24 17:51:04 by welee            ###   ########.fr       */
+/*   Updated: 2024/09/02 11:20:09 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "color.h"
 
+/**
+ * @brief Create color with rgba value
+ *
+ * @param r The red value
+ * @param g The green value
+ * @param b The blue value
+ * @param a The alpha value
+ * @return t_color The color
+ */
 t_color	create_color_rgba(int r, int g, int b, int a)
 {
 	t_color	color;
@@ -35,6 +44,14 @@ t_color	create_color_rgba(int r, int g, int b, int a)
 	return (color);
 }
 
+/**
+ * @brief Create color with rgb value
+ *
+ * @param r The red value
+ * @param g The green value
+ * @param b The blue value
+ * @return t_color The color
+ */
 t_color	create_color_rgb(int r, int g, int b)
 {
 	t_color	color;

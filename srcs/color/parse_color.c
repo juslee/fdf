@@ -6,15 +6,19 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 15:25:25 by welee             #+#    #+#             */
-/*   Updated: 2024/08/29 16:29:00 by welee            ###   ########.fr       */
+/*   Updated: 2024/09/02 11:18:16 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "color.h"
 #include "libft.h"
-#include <stddef.h>
-#include <stdio.h>
 
+/**
+ * @brief Parse a color from a string
+ *
+ * @param color_str The color string
+ * @return t_color The parsed color
+ */
 t_color	parse_color(const char *color_str)
 {
 	t_color	color;

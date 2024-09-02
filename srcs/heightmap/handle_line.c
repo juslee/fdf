@@ -6,7 +6,7 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 09:44:53 by welee             #+#    #+#             */
-/*   Updated: 2024/09/02 10:09:29 by welee            ###   ########.fr       */
+/*   Updated: 2024/09/02 11:13:55 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,12 @@
 #include "libft.h"
 #include "get_next_line.h"
 
+/**
+ * @brief Get the width of the map
+ *
+ * @param line The line to get the width from
+ * @return int The width of the map
+ */
 static int	get_width(const char *line)
 {
 	char	**split;
@@ -31,6 +37,13 @@ static int	get_width(const char *line)
 	return (free(split), width);
 }
 
+/**
+ * @brief Check if the map is valid
+ *
+ * @param map The map to check
+ * @param fd The file descriptor
+ * @return int 1 if the map is valid, 0 otherwise
+ */
 int	handle_line(t_map *map, int fd)
 {
 	char	*line;

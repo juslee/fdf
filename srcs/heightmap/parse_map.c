@@ -6,7 +6,7 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 13:37:04 by welee             #+#    #+#             */
-/*   Updated: 2024/09/02 09:46:59 by welee            ###   ########.fr       */
+/*   Updated: 2024/09/02 11:16:42 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,14 @@
 // 	return (1);
 // }
 
+/**
+ * @brief Parse the vertex and color from the token
+ *
+ * @param token The token to parse
+ * @param x The x position of the vertex
+ * @param y The y position of the vertex
+ * @return t_vertex The parsed vertex
+*/
 static t_vertex	parse_vertex(char *token, int x, int y)
 {
 	t_vertex	point;
@@ -118,6 +126,14 @@ static t_vertex	parse_vertex(char *token, int x, int y)
 	return (point);
 }
 
+/**
+ * @brief Fill the vertex array with the data from the line
+ *
+ * @param map_row The row to fill
+ * @param line The line to parse
+ * @param y The y position of the row
+ * @return int 1 if the parsing was successful, 0 otherwise
+ */
 static int	fill_vertex(t_vertex *map_row, char *line, int y)
 {
 	char	**tokens;
@@ -136,6 +152,13 @@ static int	fill_vertex(t_vertex *map_row, char *line, int y)
 	return (free(tokens), 1);
 }
 
+/**
+ * @brief Parse the map file and store the data in the map struct
+ *
+ * @param filename The name of the file to parse
+ * @param map The map struct to store the data
+ * @return int 1 if the parsing was successful, 0 otherwise
+ */
 static int	parse_lines(t_map *map, int fd)
 {
 	char	*line;

@@ -6,12 +6,18 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 14:43:01 by welee             #+#    #+#             */
-/*   Updated: 2024/08/22 14:43:55 by welee            ###   ########.fr       */
+/*   Updated: 2024/09/02 11:20:26 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "color.h"
 
+/**
+ * @brief Convert color to grayscale
+ *
+ * @param color The color
+ * @return t_color The grayscale color
+ */
 t_color	color_to_grayscale(t_color color)
 {
 	int		luminance;
