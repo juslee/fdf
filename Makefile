@@ -6,12 +6,12 @@
 #    By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/01 14:31:18 by welee             #+#    #+#              #
-#    Updated: 2024/08/30 13:16:07 by welee            ###   ########.fr        #
+#    Updated: 2024/09/08 10:09:35 by welee            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = $(BINS_DIR)/fdf
-BONUS_NAME = $(BINS_DIR)/fdf_bonus
+# BONUS_NAME = $(BINS_DIR)/fdf_bonus
 
 SRCS = $(wildcard $(SRCS_DIR)/*.c) \
 	   $(wildcard $(SRCS_DIR)/color/*.c) \
