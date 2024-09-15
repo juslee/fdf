@@ -8,3 +8,6 @@
 [submodule "libs/ft_printf"]
 	path = libs/ft_printf
 	url = git@github.com:juslee/ft_printf.git
+[submodule "libs/minilibx-linux"]
+	path = libs/minilibx-linux
+	url = git@github.com:42Paris/minilibx-linux.git
