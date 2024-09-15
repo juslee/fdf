@@ -1,1 +1,10 @@
 
+[submodule "libs/libft"]
+	path = libs/libft
+	url = git@github.com:juslee/libft.git
+[submodule "libs/get_next_line"]
+	path = libs/get_next_line
+	url = git@github.com:juslee/get_next_line.git
+[submodule "libs/ft_printf"]
+	path = libs/ft_printf
+	url = git@github.com:juslee/ft_printf.git
