@@ -6,7 +6,7 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 13:43:11 by welee             #+#    #+#             */
-/*   Updated: 2024/09/18 00:13:57 by welee            ###   ########.fr       */
+/*   Updated: 2024/09/18 00:45:41 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ enum {
 # define KEY_D 100 // d
 # define KEY_Q 113 // q
 # define KEY_E 101 // e
-# define ORTHOGRAPHIC_PROJECTION_TOP 111 // o
+# define ORTHOGRAPHIC_PROJECTION_TOP 116 // t
 # define ORTHOGRAPHIC_PROJECTION_FRONT 102 // f
 # define ORTHOGRAPHIC_PROJECTION_RIGHT 114 // r
 # define ISOMETRIC_PROJECTION 105 // i
