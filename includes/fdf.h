@@ -6,7 +6,7 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 17:36:06 by welee             #+#    #+#             */
-/*   Updated: 2024/09/17 19:42:32 by welee            ###   ########.fr       */
+/*   Updated: 2024/09/18 00:05:23 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 
 # define WINDOW_WIDTH 1280
 # define WINDOW_HEIGHT 800
+# define IMAGE_WIDTH 400
 # define WINDOW_TITLE "FDF"
 # define DEFAULT_CASE_SIZE 20.0
 # define DEFAULT_Z_SIZE 10.0
@@ -44,13 +45,13 @@ typedef struct s_pixel
 	t_color	color;
 }	t_pixel;
 
-typedef struct s_wu
-{
-	double	gradient;
-	double	inter;
-	double	end;
-	double	gap;
-}	t_wu;
+// typedef struct s_wu
+// {
+// 	double	gradient;
+// 	double	inter;
+// 	double	end;
+// 	double	gap;
+// }	t_wu;
 
 typedef struct s_fdf
 {
@@ -59,6 +60,8 @@ typedef struct s_fdf
 	t_buffer	buffer;
 	int			win_width;
 	int			win_height;
+	int			image_width;
+	int			image_height;
 	t_rotation	rot;
 	float		zoom;
 	float		case_size;
@@ -71,6 +74,7 @@ typedef struct s_fdf
 	t_mat4		projection;
 	t_mat4		mvp;
 	float		padding;
+	void		*img_ptr;
 }	t_fdf;
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 13:43:11 by welee             #+#    #+#             */
-/*   Updated: 2024/09/17 20:02:48 by welee            ###   ########.fr       */
+/*   Updated: 2024/09/18 00:13:57 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # include "fdf.h"
 # include <unistd.h>
 # include "libft.h"
+
+# define KEYS_IMAGE "./assets/keys.xpm"
 
 enum {
 	ON_KEYDOWN = 2,
@@ -47,13 +49,13 @@ enum {
 
 // Handle Key Press
 int		handle_keypress(int keycode, t_fdf *fdf);
-int		handle_resize(int width, int height, t_fdf *fdf);
 int		close_window(t_fdf *fdf);
 
 // Function Prototypes
 int		parse_args(int argc, char **argv, t_fdf *fdf);
 int		init_fdf(t_fdf *fdf);
 int		init_mlx(t_fdf *fdf);
+int		init_image(t_fdf *fdf);
 int		init_isometric(t_fdf *fdf);
 int		init_orthographic(t_fdf *fdf);
 int		init_hooks(t_fdf *fdf);

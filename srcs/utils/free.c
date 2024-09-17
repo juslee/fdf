@@ -6,7 +6,7 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/15 16:14:56 by welee             #+#    #+#             */
-/*   Updated: 2024/09/16 12:11:18 by welee            ###   ########.fr       */
+/*   Updated: 2024/09/18 00:06:35 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ void	free_map(t_map *map)
 
 void	free_fdf(t_fdf *fdf)
 {
+	if (fdf->img_ptr)
+		mlx_destroy_image(fdf->mlx_ptr, fdf->img_ptr);
 	if (fdf->map)
 		free_map(fdf->map);
 	if (fdf->buffer.img)

@@ -6,7 +6,7 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 13:12:28 by welee             #+#    #+#             */
-/*   Updated: 2024/09/17 18:29:29 by welee            ###   ########.fr       */
+/*   Updated: 2024/09/18 00:02:08 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static void	set_zoom(t_fdf *fdf, float *min_max)
 
 	width = min_max[1] - min_max[0];
 	height = min_max[3] - min_max[2];
-	zoom_x = (fdf->win_width - 2 * fdf->padding) / width;
+	zoom_x = (fdf->win_width - fdf->image_width - 2 * fdf->padding) / width;
 	zoom_y = (fdf->win_height - 2 * fdf->padding) / height;
 	fdf->zoom = fmin(zoom_x, zoom_y);
 }
@@ -54,7 +54,7 @@ static void	set_offset(t_fdf *fdf, float *min_max)
 
 	width = min_max[1] - min_max[0];
 	height = min_max[3] - min_max[2];
-	fdf->offset_x = (fdf->win_width - width * fdf->zoom) / 2
+	fdf->offset_x = (fdf->win_width - fdf->image_width - width * fdf->zoom) / 2
 		- min_max[0] * fdf->zoom;
 	fdf->offset_y = (fdf->win_height - height * fdf->zoom) / 2
 		- min_max[2] * fdf->zoom;
