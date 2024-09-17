@@ -6,7 +6,7 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 17:46:53 by welee             #+#    #+#             */
-/*   Updated: 2024/09/02 12:58:16 by welee            ###   ########.fr       */
+/*   Updated: 2024/09/17 18:41:44 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ t_mat4	mat4_multiply(t_mat4 a, t_mat4 b)
 	int		j;
 	int		k;
 
+	result = mat4_identity();
 	i = 0;
 	while (i < 4)
 	{
@@ -45,3 +46,4 @@ t_mat4	mat4_multiply(t_mat4 a, t_mat4 b)
 	}
 	return (result);
 }
+

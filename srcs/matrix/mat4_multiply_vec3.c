@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mat4_apply_to_vec3.c                               :+:      :+:    :+:   */
+/*   mat4_multiply_vec3.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 17:55:36 by welee             #+#    #+#             */
-/*   Updated: 2024/09/02 13:54:06 by welee            ###   ########.fr       */
+/*   Updated: 2024/09/17 18:28:13 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
  * @param vec The vector
  * @return t_vec3f The result vector
  */
-t_vec3f	mat4_apply_to_vec3(t_mat4 mat, t_vec3f vec)
+t_vec3f	mat4_multiply_vec3(t_mat4 mat, t_vec3f vec)
 {
 	t_vec3f	result;
 	float	w;

@@ -1,20 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   heightmap.h                                        :+:      :+:    :+:   */
+/*   map.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/07 12:31:52 by welee             #+#    #+#             */
-/*   Updated: 2024/09/02 11:25:15 by welee            ###   ########.fr       */
+/*   Updated: 2024/09/16 00:56:12 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HEIGHTMAP_H
-# define HEIGHTMAP_H
+#ifndef MAP_H
+# define MAP_H
 
 # include "color.h"
 # include "vector.h"
+
+# define DEFAULT_COLOR "0xFFFFFF"
 
 // vertex is the 3D point in the world
 //     Z
@@ -28,30 +30,25 @@
 // Y
 typedef struct s_vertex
 {
-	t_vec3f	position;
+	t_vec3f	pos;
 	t_color	color;
 }	t_vertex;
 
-//
 typedef struct s_map
 {
 	int			width;
 	int			height;
-	int			max_elevation;
-	int			min_elevation;
-	t_vertex	**vertex;
+	int			max_elev;
+	int			min_elev;
+	t_vertex	**vertices;
 }	t_map;
 
 /*
 ** Function Prototypes
 */
-int		parse_map(const char *filename, t_map *map);
-// void	free_map(t_map *map);
-void	free_map_point(t_map *map);
-int		handle_line(t_map *map, int fd);
+int		parse_map(char *filename, t_map *map);
 
 // Debugging Prototypes
-// void	print_map(t_map *map);
-// void	print_vertex(t_map *map);
+void	print_map(t_map *map);
 
 #endif

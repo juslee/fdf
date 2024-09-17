@@ -6,7 +6,7 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 16:54:07 by welee             #+#    #+#             */
-/*   Updated: 2024/09/02 13:33:41 by welee            ###   ########.fr       */
+/*   Updated: 2024/09/17 18:20:43 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,9 @@ t_mat4	mat4_lookat(t_vec3f eye, t_vec3f center, t_vec3f up);
 t_mat4	mat4_perspective(float fov, float aspect_ratio,
 			float near, float far);
 t_mat4	mat4_isometric(void);
-t_vec3f	mat4_apply_to_vec3(t_mat4 m, t_vec3f v);
+t_mat4	mat4_model(t_scaling scaling, t_rotation rotation,
+			t_translation translation);
+t_vec3f	mat4_multiply_vec3(t_mat4 m, t_vec3f v);
 
 // Debugging
 void	mat4_print(t_mat4 m);

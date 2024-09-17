@@ -6,37 +6,38 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 16:54:52 by welee             #+#    #+#             */
-/*   Updated: 2024/09/02 13:01:10 by welee            ###   ########.fr       */
+/*   Updated: 2024/09/17 20:12:32 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
-#include "render.h"
 #include "utils.h"
+#include <math.h>
 
 int	main(int argc, char **argv)
 {
-	t_map	map;
 	t_fdf	fdf;
+	void	*img_ptr;
+	int		img_width;
+	int		img_height;
 
-	fdf.case_size = 20;
-	fdf.z_size = 20;
 	if (argc < 2 || argc > 4)
-		return (
-			ft_printf("Usage : %s <filename> [ case_size z_size ]\n", argv[0]),
-			EXIT_FAILURE);
-	if (argc == 4 && ft_isnumber(argv[2]) && ft_isnumber(argv[3]))
-	{
-		fdf.case_size = ft_atoi(argv[2]);
-		fdf.z_size = ft_atoi(argv[3]);
-	}
-	if (!parse_map(argv[1], &map))
+		return (error_args(argv[0], &fdf));
+	if (!init_fdf(&fdf))
 		return (EXIT_FAILURE);
-	if (!init_fdf(&fdf, &map))
+	if (!parse_args(argc, argv, &fdf))
 		return (EXIT_FAILURE);
-	mlx_loop_hook(fdf.mlx, main_loop, &fdf);
-	mlx_hook(fdf.win, 2, 1L << 0, handle_keypress, &fdf);
-	mlx_hook(fdf.win, 17, 1L << 17, close_window, &fdf);
-	mlx_loop(fdf.mlx);
-	return (free_map_point(&map), EXIT_SUCCESS);
+	if (!parse_map(argv[1], fdf.map))
+		return (free_fdf(&fdf), EXIT_FAILURE);
+	if (!init_mlx(&fdf))
+		return (EXIT_FAILURE);
+	img_ptr = mlx_xpm_file_to_image(fdf.mlx_ptr, "./assets/test.xpm", &img_width, &img_height);
+	if (!img_ptr)
+		return (error_exit("Failed to load image", &fdf));
+	fdf.rot = (t_rotation){-90 * M_PI / 180, 0, 0};
+	if (!init_isometric(&fdf))
+		return (EXIT_FAILURE);
+	if (!init_hooks(&fdf))
+		return (EXIT_FAILURE);
+	return (free_fdf(&fdf), EXIT_SUCCESS);
 }

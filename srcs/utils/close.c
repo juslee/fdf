@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   update_translation.c                               :+:      :+:    :+:   */
+/*   close_window.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/22 19:30:14 by welee             #+#    #+#             */
-/*   Updated: 2024/09/02 12:56:16 by welee            ###   ########.fr       */
+/*   Created: 2024/09/02 09:58:07 by welee             #+#    #+#             */
+/*   Updated: 2024/09/16 12:23:55 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "transform.h"
+#include "utils.h"
+#include "mlx.h"
 
 /**
- * @brief Update the translation of the transform matrix
+ * @brief Close the window
  *
- * @param transform pointer to the transform matrix
- * @param translation the translation to be updated
+ * @param fdf The fdf structure
+ * @return int The return value
  */
-void	update_translation(t_mat4 *transform, t_translation translation)
+int	close_window(t_fdf *fdf)
 {
-	t_mat4	mat_translation;
-
-	mat_translation = mat4_translate(translation);
-	*transform = mat4_multiply(*transform, mat_translation);
+	free_fdf(fdf);
+	exit(0);
+	return (0);
 }

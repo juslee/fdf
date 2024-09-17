@@ -6,7 +6,7 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 14:38:56 by welee             #+#    #+#             */
-/*   Updated: 2024/09/02 11:37:38 by welee            ###   ########.fr       */
+/*   Updated: 2024/09/17 18:28:41 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,8 +67,6 @@ void	bresenham_line(t_buffer *buf, t_pixel start, t_pixel end)
 	t_vec2i		p;
 	int			err2;
 
-	if (!cohen_sutherland_clip(&start.point, &end.point))
-		return ;
 	init_bresenham(&b, start.point, end.point);
 	p = start.point;
 	while (p.x != end.point.x || p.y != end.point.y)

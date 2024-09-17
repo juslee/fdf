@@ -6,7 +6,7 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 15:33:42 by welee             #+#    #+#             */
-/*   Updated: 2024/09/02 12:58:26 by welee            ###   ########.fr       */
+/*   Updated: 2024/09/17 14:25:02 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,5 @@ t_mat4	mat4_orthographic(t_map_x map_x, t_map_y map_y, t_elevation elevation)
 	result.m[1][3] = -(map_y.top + map_y.bottom) / (map_y.top - map_y.bottom);
 	result.m[2][3] = -(elevation.far + elevation.near) / (
 			elevation.far - elevation.near);
-	result.m[3][3] = 1.0f;
 	return (result);
 }

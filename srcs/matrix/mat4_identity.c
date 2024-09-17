@@ -6,11 +6,12 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 17:46:17 by welee             #+#    #+#             */
-/*   Updated: 2024/09/02 12:57:41 by welee            ###   ########.fr       */
+/*   Updated: 2024/09/15 20:47:29 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "matrix.h"
+#include "libft.h"
 
 /**
  * @brief Create an identity matrix
@@ -23,6 +24,7 @@ t_mat4	mat4_identity(void)
 	int		i;
 	int		j;
 
+	ft_bzero(&mat, sizeof(t_mat4));
 	i = 0;
 	while (i < 4)
 	{
@@ -31,8 +33,6 @@ t_mat4	mat4_identity(void)
 		{
 			if (i == j)
 				mat.m[i][j] = 1.0f;
-			else
-				mat.m[i][j] = 0.0f;
 			j++;
 		}
 		i++;

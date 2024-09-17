@@ -6,22 +6,26 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 17:36:06 by welee             #+#    #+#             */
-/*   Updated: 2024/08/29 15:38:03 by welee            ###   ########.fr       */
+/*   Updated: 2024/09/17 19:42:32 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FDF_H
 # define FDF_H
 
-# include "heightmap.h"
+# include "map.h"
 # include "matrix.h"
 # include "mlx.h"
 # include "libft.h"
 # include "get_next_line.h"
 # include "ft_printf.h"
 
-# define WIN_WIDTH 800
-# define WIN_HEIGHT 600
+# define WINDOW_WIDTH 1280
+# define WINDOW_HEIGHT 800
+# define WINDOW_TITLE "FDF"
+# define DEFAULT_CASE_SIZE 20.0
+# define DEFAULT_Z_SIZE 10.0
+# define DEFAULT_PADDING 50.0
 
 // Image Buffer
 typedef struct s_buffer
@@ -50,20 +54,23 @@ typedef struct s_wu
 
 typedef struct s_fdf
 {
-	void		*mlx;
-	void		*win;
-	t_map		*map;
+	void		*mlx_ptr;
+	void		*win_ptr;
 	t_buffer	buffer;
+	int			win_width;
+	int			win_height;
+	t_rotation	rot;
+	float		zoom;
+	float		case_size;
+	float		z_size;
+	float		offset_x;
+	float		offset_y;
+	t_map		*map;
 	t_mat4		model;
 	t_mat4		view;
 	t_mat4		projection;
-	int			width;
-	int			height;
-	int			case_size;
-	int			z_size;
-	int			zoom;
-	int			offset_x;
-	int			offset_y;
+	t_mat4		mvp;
+	float		padding;
 }	t_fdf;
 
 #endif

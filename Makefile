@@ -6,18 +6,16 @@
 #    By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/01 14:31:18 by welee             #+#    #+#              #
-#    Updated: 2024/09/15 14:43:02 by welee            ###   ########.fr        #
+#    Updated: 2024/09/17 15:46:01 by welee            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = $(BINS_DIR)/fdf
 SRCS = $(wildcard $(SRCS_DIR)/*.c) \
 	   $(wildcard $(SRCS_DIR)/color/*.c) \
-	   $(wildcard $(SRCS_DIR)/heightmap/*.c) \
+	   $(wildcard $(SRCS_DIR)/map/*.c) \
 	   $(wildcard $(SRCS_DIR)/matrix/*.c) \
-	   $(wildcard $(SRCS_DIR)/quaternion/*.c) \
 	   $(wildcard $(SRCS_DIR)/render/*.c) \
-	   $(wildcard $(SRCS_DIR)/transform/*.c) \
 	   $(wildcard $(SRCS_DIR)/utils/*.c) \
 	   $(wildcard $(SRCS_DIR)/vector/*.c)
 OBJS = $(SRCS:$(SRCS_DIR)/%.c=$(OBJS_DIR)/%.o)
