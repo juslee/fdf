@@ -6,7 +6,7 @@
 #    By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/01 14:31:18 by welee             #+#    #+#              #
-#    Updated: 2024/09/18 16:26:50 by welee            ###   ########.fr        #
+#    Updated: 2024/09/18 16:40:56 by welee            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -75,11 +75,13 @@ endif
 WHOAMI = $(shell whoami)
 # ---------------------------------------------------------------------------- #
 
+# Tools Definitions ---------------------------------------------------------- #
 NORM = norminette
 NORM_FLAGS = -R CheckForbiddenSourceHeader -R CheckDefine
 
 DOXYGEN = doxygen
 DOXYGEN_CONF = Doxyfile
+# ---------------------------------------------------------------------------- #
 
 # Rules Definitions ---------------------------------------------------------- #
 all: $(NAME)
@@ -104,6 +106,7 @@ $(MLX):
 	$(MAKE) -C $(MLX_DIR)
 
 $(OBJS_DIR)/%.o: $(SRCS_DIR)/%.c $(INCS) | $(OBJS_DIR)
+	$(MKDIR) $(@D)
 	$(CC) $(CFLAGS) -c $< -o $@
 	@$(ECHO) "\033[33m$@\033[0m"
 
