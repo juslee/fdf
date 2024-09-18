@@ -6,7 +6,7 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 16:54:07 by welee             #+#    #+#             */
-/*   Updated: 2024/09/17 18:20:43 by welee            ###   ########.fr       */
+/*   Updated: 2024/09/18 17:48:27 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ typedef struct s_elevation
 }	t_elevation;
 
 // Function prototypes
+float	mat4_determinant(t_mat4 mat);
 t_mat4	mat4_identity(void);
 t_mat4	mat4_multiply(t_mat4 a, t_mat4 b);
 t_mat4	mat4_translate(t_translation translation);
