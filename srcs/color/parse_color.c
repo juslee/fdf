@@ -6,7 +6,7 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 15:25:25 by welee             #+#    #+#             */
-/*   Updated: 2024/09/16 00:41:44 by welee            ###   ########.fr       */
+/*   Updated: 2024/09/18 15:10:26 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ t_color	parse_color(const char *color_str)
 	color.r = 255;
 	color.g = 255;
 	color.b = 255;
-	if (color_str && ft_strlen(color_str) == 8
+	if (color_str && ft_strlen(color_str) <= 8
 		&& color_str[0] == '0' && color_str[1] == 'x')
 	{
 		hex_value = (int)ft_strtol(&color_str[2], NULL, 16);
