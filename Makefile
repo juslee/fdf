@@ -6,7 +6,7 @@
 #    By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/01 14:31:18 by welee             #+#    #+#              #
-#    Updated: 2024/09/17 15:46:01 by welee            ###   ########.fr        #
+#    Updated: 2024/09/18 15:17:27 by welee            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -142,7 +142,7 @@ dist: fclean
 	$(MKDIR) $(DIST_DIR)
 	$(CP) $(SRCS_DIR) $(INCS_DIR) $(LIBS_DIR) $(DIST_DIR)
 	$(CP) Makefile $(DIST_DIR)
-	$(SED) 's|^NAME = $$(BINS_Dcd dIR)/fdf$$|NAME = fdf|' $(DIST_DIR)/Makefile
+	$(SED) 's|^NAME = $$(BINS_DIR)/fdf$$|NAME = fdf|' $(DIST_DIR)/Makefile
 	$(SED) '/^\$$(NAME):/ s/ | $$(BINS_DIR)//' $(DIST_DIR)/Makefile
 	@$(ECHO) "\033[32mDistribution files copied\033[0m"
 
