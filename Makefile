@@ -6,7 +6,7 @@
 #    By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/01 14:31:18 by welee             #+#    #+#              #
-#    Updated: 2024/09/18 16:40:56 by welee            ###   ########.fr        #
+#    Updated: 2024/09/18 16:48:55 by welee            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,7 +54,7 @@ MLX_LIB = -L$(MLX_DIR) -lmlx -L/usr/X11/include/../lib -lXext -lX11 -lm
 MLX_INC = $(MLX_DIR)
 # ---------------------------------------------------------------------------- #
 
-# Macro Definitions ---------------------------------------------------------- #
+# Macro Variables ------------------------------------------------------------ #
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -I$(INCS_DIR) -I$(LIBFT_INC) -I$(GET_NEXT_LINE_INC) -I$(FT_PRINTF_INC) -I$(MLX_INC)
 LIBC = ar rcs
@@ -75,7 +75,7 @@ endif
 WHOAMI = $(shell whoami)
 # ---------------------------------------------------------------------------- #
 
-# Tools Definitions ---------------------------------------------------------- #
+# Tools Variables ------------------------------------------------------------ #
 NORM = norminette
 NORM_FLAGS = -R CheckForbiddenSourceHeader -R CheckDefine
 
