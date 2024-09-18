@@ -6,7 +6,7 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 17:46:17 by welee             #+#    #+#             */
-/*   Updated: 2024/09/15 20:47:29 by welee            ###   ########.fr       */
+/*   Updated: 2024/09/18 12:54:24 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 /**
  * @brief Create an identity matrix
- *
  * @return t_mat4 The identity matrix
  */
 t_mat4	mat4_identity(void)

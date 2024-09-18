@@ -6,7 +6,7 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 17:48:44 by welee             #+#    #+#             */
-/*   Updated: 2024/09/17 18:48:42 by welee            ###   ########.fr       */
+/*   Updated: 2024/09/18 12:56:05 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 /**
  * @brief Create a translation matrix
- *
  * @param translation The translation
  * @return t_mat4 The translation matrix
  */

@@ -6,14 +6,14 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 17:55:36 by welee             #+#    #+#             */
-/*   Updated: 2024/09/17 18:28:13 by welee            ###   ########.fr       */
+/*   Updated: 2024/09/18 12:55:08 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "matrix.h"
 
 /**
- * @brief Apply a matrix to a vector
+ * @brief Multiply a 4x4 matrix by a 3D vector
  *
  * @param mat The matrix
  * @param vec The vector

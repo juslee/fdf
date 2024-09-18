@@ -6,12 +6,19 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 01:27:53 by welee             #+#    #+#             */
-/*   Updated: 2024/09/17 19:01:17 by welee            ###   ########.fr       */
+/*   Updated: 2024/09/18 12:54:56 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "matrix.h"
 
+/**
+ * @brief Create a model matrix
+ * @param scaling The scaling factor
+ * @param rotation The rotation factor
+ * @param translation The translation factor
+ * @return t_mat4 The model matrix
+ */
 t_mat4	mat4_model(t_scaling scaling, t_rotation rotation,
 	t_translation translation)
 {

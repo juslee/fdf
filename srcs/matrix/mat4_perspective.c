@@ -6,7 +6,7 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/30 15:39:00 by welee             #+#    #+#             */
-/*   Updated: 2024/09/02 12:58:39 by welee            ###   ########.fr       */
+/*   Updated: 2024/09/18 12:55:33 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 /**
  * @brief Create a perspective matrix
- *
  * @param fov the field of view
  * @param aspect the aspect ratio
  * @param near the near plane

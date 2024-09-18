@@ -6,7 +6,7 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 17:49:41 by welee             #+#    #+#             */
-/*   Updated: 2024/09/17 08:39:18 by welee            ###   ########.fr       */
+/*   Updated: 2024/09/18 12:55:58 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 /**
  * @brief Create a scaling matrix
- *
  * @param scale The scaling
  * @return t_mat4 The scaling matrix
  */

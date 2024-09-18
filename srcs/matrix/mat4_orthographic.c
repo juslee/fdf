@@ -6,7 +6,7 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 15:33:42 by welee             #+#    #+#             */
-/*   Updated: 2024/09/17 14:25:02 by welee            ###   ########.fr       */
+/*   Updated: 2024/09/18 12:55:27 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 /**
  * @brief Create an orthographic matrix
- *
  * @param map_x The x-axis map
  * @param map_y The y-axis map
  * @param elevation The elevation map

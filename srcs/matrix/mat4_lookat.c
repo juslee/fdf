@@ -6,7 +6,7 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/30 14:55:26 by welee             #+#    #+#             */
-/*   Updated: 2024/09/02 12:58:09 by welee            ###   ########.fr       */
+/*   Updated: 2024/09/18 12:54:38 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 /**
  * @brief Create a lookat matrix
- *
  * @param eye The eye position
  * @param center The center position
  * @param up The up vector

@@ -6,7 +6,7 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 17:50:22 by welee             #+#    #+#             */
-/*   Updated: 2024/09/17 17:54:55 by welee            ###   ########.fr       */
+/*   Updated: 2024/09/18 12:55:47 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 /**
  * @brief Create a rotation matrix around the x-axis
- *
  * @param angle the angle to be rotated
  * @return t_mat4 The rotation matrix
  */
