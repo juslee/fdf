@@ -6,7 +6,7 @@
 #    By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/01 14:31:18 by welee             #+#    #+#              #
-#    Updated: 2024/09/18 15:17:27 by welee            ###   ########.fr        #
+#    Updated: 2024/09/18 16:26:50 by welee            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ SRCS = $(wildcard $(SRCS_DIR)/*.c) \
 	   $(wildcard $(SRCS_DIR)/utils/*.c) \
 	   $(wildcard $(SRCS_DIR)/vector/*.c)
 OBJS = $(SRCS:$(SRCS_DIR)/%.c=$(OBJS_DIR)/%.o)
+INCS = $(wildcard $(INCS_DIR)/*.h)
 
 # Directory Variables -------------------------------------------------------- #
 SRCS_DIR = srcs
@@ -102,10 +103,12 @@ $(FT_PRINTF):
 $(MLX):
 	$(MAKE) -C $(MLX_DIR)
 
-$(OBJS_DIR)/%.o: $(SRCS_DIR)/%.c
-	$(MKDIR) $(@D)
+$(OBJS_DIR)/%.o: $(SRCS_DIR)/%.c $(INCS) | $(OBJS_DIR)
 	$(CC) $(CFLAGS) -c $< -o $@
 	@$(ECHO) "\033[33m$@\033[0m"
+
+$(OBJS_DIR):
+	$(MKDIR) $@
 
 clean:
 	$(RM) $(OBJS)
