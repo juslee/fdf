@@ -6,7 +6,7 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 10:20:52 by welee             #+#    #+#             */
-/*   Updated: 2024/09/02 11:35:40 by welee            ###   ########.fr       */
+/*   Updated: 2024/09/18 12:46:19 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 /**
  * @brief Clear the buffer
- *
  * @param buf The buffer
  * @param width The width of the buffer
  * @param height The height of the buffer

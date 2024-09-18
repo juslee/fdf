@@ -6,7 +6,7 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 10:05:32 by welee             #+#    #+#             */
-/*   Updated: 2024/09/02 11:34:28 by welee            ###   ########.fr       */
+/*   Updated: 2024/09/18 12:46:30 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 /**
  * @brief Put a pixel on the buffer
- *
  * @param buf The buffer
  * @param p The position of the pixel
  * @param color The color of the pixel

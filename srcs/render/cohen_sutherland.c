@@ -6,7 +6,7 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 23:59:37 by welee             #+#    #+#             */
-/*   Updated: 2024/09/17 17:57:44 by welee            ###   ########.fr       */
+/*   Updated: 2024/09/18 12:45:52 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,14 @@
 #define BOTTOM 4
 #define TOP    8
 
+/**
+ * @brief Compute the region code of the point
+ * @param p The point
+ * @param viewport The viewport
+ * @return int The region code
+ * @note The region code is a 4-bit code that represents the position of the point
+ * with respect to the viewport.
+ */
 static int	compute_region_code(t_vec2i p, t_viewport *viewport)
 {
 	int	code;
@@ -35,6 +43,14 @@ static int	compute_region_code(t_vec2i p, t_viewport *viewport)
 	return (code);
 }
 
+/**
+ * @brief Compute the intersection point
+ * @param s The start point
+ * @param e The end point
+ * @param code_out The region code
+ * @param v The viewport
+ * @return t_vec2i The intersection point
+ */
 static t_vec2i	compute_intersection(t_vec2i s, t_vec2i e, int code_out,
 			t_viewport *v)
 {
@@ -65,6 +81,14 @@ static t_vec2i	compute_intersection(t_vec2i s, t_vec2i e, int code_out,
 	return (new_point);
 }
 
+/**
+ * @brief Update the point
+ * @param start The start point
+ * @param end The end point
+ * @param code_out The region code
+ * @param viewport The viewport
+ * @return int The region code
+ */
 static int	update_point(t_vec2i *start, t_vec2i *end, int code_out,
 	t_viewport *viewport)
 {
@@ -75,6 +99,13 @@ static int	update_point(t_vec2i *start, t_vec2i *end, int code_out,
 	return (compute_region_code(*start, viewport));
 }
 
+/**
+ * @brief Clip a line using the Cohen-Sutherland algorithm
+ * @param start The start point
+ * @param end The end point
+ * @param viewport The viewport
+ * @return int 1 if the line is visible, 0 otherwise
+ */
 int	cohen_sutherland_clip(t_vec2i *start, t_vec2i *end, t_viewport *viewport)
 {
 	int	code[2];

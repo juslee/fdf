@@ -6,7 +6,7 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 23:58:10 by welee             #+#    #+#             */
-/*   Updated: 2024/09/18 12:36:27 by welee            ###   ########.fr       */
+/*   Updated: 2024/09/18 12:53:13 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,11 @@
 #include "utils.h"
 #include <math.h>
 
+/**
+ * @brief Initialize the orthographic projection.
+ * @param fdf The fdf structure.
+ * @return int The return value.
+ */
 int	init_orthographic(t_fdf *fdf)
 {
 	t_map_x		map_x;
@@ -35,6 +40,9 @@ int	init_orthographic(t_fdf *fdf)
 	return (1);
 }
 
+/**
+ * @brief Initialize the isometric projection.
+ */
 int	init_isometric(t_fdf *fdf)
 {
 	fdf->model = mat4_model(

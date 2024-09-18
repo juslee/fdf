@@ -6,7 +6,7 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/15 20:51:34 by welee             #+#    #+#             */
-/*   Updated: 2024/09/18 12:34:47 by welee            ###   ########.fr       */
+/*   Updated: 2024/09/18 12:53:48 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,18 @@
 #include "utils.h"
 #include <math.h>
 
+/**
+ * @brief Initialize the fdf structure
+ * @param fdf The fdf structure
+ * @return int The return value
+ */
 int	init_fdf(t_fdf *fdf)
 {
 	ft_bzero(fdf, sizeof(t_fdf));
 	fdf->win_width = WINDOW_WIDTH;
 	fdf->win_height = WINDOW_HEIGHT;
 	fdf->image_width = IMAGE_WIDTH;
+	fdf->image_height = IMAGE_HEIGHT;
 	fdf->padding = DEFAULT_PADDING;
 	fdf->case_size = DEFAULT_CASE_SIZE;
 	fdf->z_size = DEFAULT_Z_SIZE;
@@ -35,6 +41,11 @@ int	init_fdf(t_fdf *fdf)
 	return (1);
 }
 
+/**
+ * @brief Initialize the mlx
+ * @param fdf The fdf structure
+ * @return int The return value
+ */
 int	init_mlx(t_fdf *fdf)
 {
 	fdf->mlx_ptr = mlx_init();
@@ -57,6 +68,11 @@ int	init_mlx(t_fdf *fdf)
 	return (1);
 }
 
+/**
+ * @brief Initialize the image
+ * @param fdf The fdf structure
+ * @return int The return value
+ */
 int	init_image(t_fdf *fdf)
 {
 	int		img_width;
@@ -67,10 +83,15 @@ int	init_image(t_fdf *fdf)
 	if (!fdf->img_ptr)
 		return (error_exit("Failed to load image", fdf));
 	mlx_put_image_to_window(fdf->mlx_ptr, fdf->win_ptr, fdf->img_ptr,
-		fdf->win_width - fdf->image_width, 0);
+		fdf->win_width - fdf->image_width, fdf->win_height - fdf->image_height);
 	return (1);
 }
 
+/**
+ * @brief Initialize the hooks
+ * @param fdf The fdf structure
+ * @return int The return value
+ */
 int	init_hooks(t_fdf *fdf)
 {
 	mlx_loop_hook(fdf->mlx_ptr, render, fdf);

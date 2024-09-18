@@ -6,7 +6,7 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 13:40:45 by welee             #+#    #+#             */
-/*   Updated: 2024/09/18 00:09:46 by welee            ###   ########.fr       */
+/*   Updated: 2024/09/18 12:49:53 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,12 @@
 #include "mlx.h"
 #include <math.h>
 
+/**
+ * @brief Draw a line between two points
+ * @param fdf The fdf struct
+ * @param start The start point
+ * @param end The end point
+ */
 void	draw_line(t_fdf *fdf, t_pixel start, t_pixel end)
 {
 	t_viewport	viewport;
@@ -27,6 +33,12 @@ void	draw_line(t_fdf *fdf, t_pixel start, t_pixel end)
 	bresenham_line(&fdf->buffer, start, end);
 }
 
+/**
+ * @brief Transform a vertex
+ * @param vertex The vertex
+ * @param fdf The fdf struct
+ * @return t_pixel The transformed vertex
+ */
 t_pixel	transform_vertex(t_vertex vertex, t_fdf *fdf)
 {
 	t_vec3f	transformed;
@@ -40,7 +52,6 @@ t_pixel	transform_vertex(t_vertex vertex, t_fdf *fdf)
 
 /**
  * @brief Render the fdf
- *
  * @param fdf The fdf struct
  * @return int 0 if success
  */

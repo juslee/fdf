@@ -6,7 +6,7 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 14:38:56 by welee             #+#    #+#             */
-/*   Updated: 2024/09/17 18:28:41 by welee            ###   ########.fr       */
+/*   Updated: 2024/09/18 12:46:13 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 
 /**
  * @brief Initialize Bresenham's algorithm
- *
  * @param b The Bresenham struct
  * @param start The start point of the line
  * @param end The end point of the line
@@ -38,7 +37,6 @@ static void	init_bresenham(t_bresenham *b, t_vec2i start, t_vec2i end)
 
 /**
  * @brief Get the factor of a point on a line
- *
  * @param start The start point of the line
  * @param end The end point of the line
  * @param p The point
@@ -56,7 +54,6 @@ static float	get_factor(t_pixel start, t_pixel end, t_vec2i p)
 
 /**
  * @brief Draw a line using Bresenham's algorithm
- *
  * @param buf The buffer
  * @param start The start point of the line
  * @param end The end point of the line
