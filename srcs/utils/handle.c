@@ -6,7 +6,7 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/29 13:31:46 by welee             #+#    #+#             */
-/*   Updated: 2024/09/17 20:02:23 by welee            ###   ########.fr       */
+/*   Updated: 2024/09/18 12:32:12 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,12 @@
 #include "fdf.h"
 #include <math.h>
 
+/**
+ * @brief Handle the zoom and offset of the fdf
+ * @param keycode The key code
+ * @param fdf The fdf
+ * @return int The status
+ */
 static int	handle_zoom_offset(int keycode, t_fdf *fdf)
 {
 	if (keycode == KEY_PLUS)
@@ -31,22 +37,32 @@ static int	handle_zoom_offset(int keycode, t_fdf *fdf)
 	return (0);
 }
 
-static void	check_rot(t_fdf fdf)
+/**
+ * @brief Check the rotation of the fdf
+ * @param fdf The fdf
+ */
+static void	check_rot(t_fdf *fdf)
 {
-	if (fdf.rot.angle_x > 2 * M_PI)
-		fdf.rot.angle_x -= 2 * M_PI;
-	else if (fdf.rot.angle_x < 0)
-		fdf.rot.angle_x += 2 * M_PI;
-	if (fdf.rot.angle_y > 2 * M_PI)
-		fdf.rot.angle_y -= 2 * M_PI;
-	else if (fdf.rot.angle_y < 0)
-		fdf.rot.angle_y += 2 * M_PI;
-	if (fdf.rot.angle_z > 2 * M_PI)
-		fdf.rot.angle_z -= 2 * M_PI;
-	else if (fdf.rot.angle_z < 0)
-		fdf.rot.angle_z += 2 * M_PI;
+	if (fdf->rot.angle_x > 2 * M_PI)
+		fdf->rot.angle_x -= 2 * M_PI;
+	else if (fdf->rot.angle_x < 0)
+		fdf->rot.angle_x += 2 * M_PI;
+	if (fdf->rot.angle_y > 2 * M_PI)
+		fdf->rot.angle_y -= 2 * M_PI;
+	else if (fdf->rot.angle_y < 0)
+		fdf->rot.angle_y += 2 * M_PI;
+	if (fdf->rot.angle_z > 2 * M_PI)
+		fdf->rot.angle_z -= 2 * M_PI;
+	else if (fdf->rot.angle_z < 0)
+		fdf->rot.angle_z += 2 * M_PI;
 }
 
+/**
+ * @brief Handle the rotation of the fdf
+ * @param keycode The key code
+ * @param fdf The fdf
+ * @return int The status
+ */
 static int	handle_rot(int keycode, t_fdf *fdf)
 {
 	if (keycode == KEY_W)
@@ -61,7 +77,7 @@ static int	handle_rot(int keycode, t_fdf *fdf)
 		fdf->rot.angle_z += 15 * M_PI / 180;
 	else if (keycode == KEY_E)
 		fdf->rot.angle_z -= 15 * M_PI / 180;
-	check_rot(*fdf);
+	check_rot(fdf);
 	fdf->model = mat4_model(
 			(t_scaling){fdf->case_size, fdf->case_size, fdf->z_size},
 			(t_rotation){fdf->rot.angle_x, fdf->rot.angle_y, fdf->rot.angle_z},

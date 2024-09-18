@@ -6,7 +6,7 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/15 20:51:34 by welee             #+#    #+#             */
-/*   Updated: 2024/09/18 00:13:41 by welee            ###   ########.fr       */
+/*   Updated: 2024/09/18 12:34:47 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #include "render.h"
 #include "utils.h"
 #include <math.h>
-// #include <float.h>
 
 int	init_fdf(t_fdf *fdf)
 {
@@ -67,7 +66,8 @@ int	init_image(t_fdf *fdf)
 			&img_width, &img_height);
 	if (!fdf->img_ptr)
 		return (error_exit("Failed to load image", fdf));
-	mlx_put_image_to_window(fdf->mlx_ptr, fdf->win_ptr, fdf->img_ptr, 880, 0);
+	mlx_put_image_to_window(fdf->mlx_ptr, fdf->win_ptr, fdf->img_ptr,
+		fdf->win_width - fdf->image_width, 0);
 	return (1);
 }
 

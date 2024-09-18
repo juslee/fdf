@@ -6,7 +6,7 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 13:12:28 by welee             #+#    #+#             */
-/*   Updated: 2024/09/18 00:02:08 by welee            ###   ########.fr       */
+/*   Updated: 2024/09/18 12:37:29 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ static void	set_offset(t_fdf *fdf, float *min_max)
 		- min_max[2] * fdf->zoom;
 }
 
-void	calculate_projected_dimensions(t_fdf *fdf)
+void	set_zoom_offset(t_fdf *fdf)
 {
 	int			x;
 	int			y;

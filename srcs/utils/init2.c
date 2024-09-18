@@ -6,12 +6,13 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 23:58:10 by welee             #+#    #+#             */
-/*   Updated: 2024/09/18 00:03:34 by welee            ###   ########.fr       */
+/*   Updated: 2024/09/18 12:36:27 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 #include "utils.h"
+#include <math.h>
 
 int	init_orthographic(t_fdf *fdf)
 {
@@ -30,7 +31,7 @@ int	init_orthographic(t_fdf *fdf)
 	fdf->projection = mat4_orthographic(map_x, map_y, elevation);
 	fdf->mvp = mat4_multiply(fdf->projection,
 			mat4_multiply(fdf->view, fdf->model));
-	calculate_projected_dimensions(fdf);
+	set_zoom_offset(fdf);
 	return (1);
 }
 
@@ -44,6 +45,6 @@ int	init_isometric(t_fdf *fdf)
 	fdf->projection = mat4_isometric();
 	fdf->mvp = mat4_multiply(fdf->projection,
 			mat4_multiply(fdf->view, fdf->model));
-	calculate_projected_dimensions(fdf);
+	set_zoom_offset(fdf);
 	return (1);
 }
