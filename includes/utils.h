@@ -6,7 +6,7 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 13:43:11 by welee             #+#    #+#             */
-/*   Updated: 2024/09/18 00:45:41 by welee            ###   ########.fr       */
+/*   Updated: 2024/09/18 12:40:53 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int		init_image(t_fdf *fdf);
 int		init_isometric(t_fdf *fdf);
 int		init_orthographic(t_fdf *fdf);
 int		init_hooks(t_fdf *fdf);
-void	calculate_projected_dimensions(t_fdf *fdf);
+void	set_zoom_offset(t_fdf *fdf);
 
 // Error Handling
 int		error_args(char *name, t_fdf *fdf);
