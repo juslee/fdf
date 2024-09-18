@@ -6,7 +6,7 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 14:41:46 by welee             #+#    #+#             */
-/*   Updated: 2024/09/02 11:37:06 by welee            ###   ########.fr       */
+/*   Updated: 2024/09/18 15:11:22 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 /**
  * @brief Blend two colors
- *
  * @param c1 The first color
  * @param c2 The second color
  * @return t_color The blended color

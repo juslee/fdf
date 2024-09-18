@@ -6,7 +6,7 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 15:25:25 by welee             #+#    #+#             */
-/*   Updated: 2024/09/18 15:10:26 by welee            ###   ########.fr       */
+/*   Updated: 2024/09/18 15:11:58 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 /**
  * @brief Parse a color from a string
- *
  * @param color_str The color string
  * @return t_color The parsed color
  */

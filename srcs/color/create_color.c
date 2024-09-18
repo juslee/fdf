@@ -6,7 +6,7 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 15:35:36 by welee             #+#    #+#             */
-/*   Updated: 2024/09/02 11:20:09 by welee            ###   ########.fr       */
+/*   Updated: 2024/09/18 15:11:35 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 /**
  * @brief Create color with rgba value
- *
  * @param r The red value
  * @param g The green value
  * @param b The blue value

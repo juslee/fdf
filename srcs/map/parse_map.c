@@ -6,7 +6,7 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 13:37:04 by welee             #+#    #+#             */
-/*   Updated: 2024/09/17 13:22:22 by welee            ###   ########.fr       */
+/*   Updated: 2024/09/18 15:12:36 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,14 @@
 #include <fcntl.h>
 #include <unistd.h>
 
+/**
+ * @brief Parse vertex
+ * @param point_str The point string
+ * @param x The x coordinate
+ * @param y The y coordinate
+ * @param map The map
+ * @return int 1 if success, 0 otherwise
+ */
 static int	parse_vertex(char *point_str, int x, int y, t_map *map)
 {
 	char		**split;
@@ -36,6 +44,13 @@ static int	parse_vertex(char *point_str, int x, int y, t_map *map)
 	return (1);
 }
 
+/**
+ * @brief Parse line
+ * @param line The line
+ * @param y The y coordinate
+ * @param map The map
+ * @return int 1 if success, 0 otherwise
+ */
 static int	parse_line(char *line, int y, t_map *map)
 {
 	char	**split;
@@ -58,6 +73,12 @@ static int	parse_line(char *line, int y, t_map *map)
 	return (1);
 }
 
+/**
+ * @brief Read map
+ * @param filename The filename
+ * @param map The map
+ * @return int 1 if success, 0 otherwise
+ */
 static int	read_map(char *filename, t_map *map)
 {
 	char	*line;
@@ -85,6 +106,12 @@ static int	read_map(char *filename, t_map *map)
 	return (1);
 }
 
+/**
+ * @brief Get line size
+ * @param line The line
+ * @param map The map
+ * @return int 1 if success, 0 otherwise
+ */
 static int	get_line_size(char *line, t_map *map)
 {
 	char	**split;
@@ -106,6 +133,12 @@ static int	get_line_size(char *line, t_map *map)
 	return (1);
 }
 
+/**
+ * @brief Parse map
+ * @param filename The filename
+ * @param map The map
+ * @return int 1 if success, 0 otherwise
+ */
 int	parse_map(char *filename, t_map *map)
 {
 	char	*line;

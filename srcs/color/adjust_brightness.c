@@ -6,7 +6,7 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 14:44:45 by welee             #+#    #+#             */
-/*   Updated: 2024/09/02 11:22:47 by welee            ###   ########.fr       */
+/*   Updated: 2024/09/18 15:11:18 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 /**
  * @brief Adjust the brightness of a color
- *
  * @param color The color
  * @param factor The brightness factor
  * @return t_color The adjusted color

@@ -6,7 +6,7 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 15:42:21 by welee             #+#    #+#             */
-/*   Updated: 2024/09/18 15:08:57 by welee            ###   ########.fr       */
+/*   Updated: 2024/09/18 15:11:43 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 /**
  * @brief Convert hex value to color
- *
  * @param hex_value The hex value
  * @return t_color The color
  */

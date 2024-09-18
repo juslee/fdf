@@ -6,7 +6,7 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 16:17:52 by welee             #+#    #+#             */
-/*   Updated: 2024/09/16 00:56:21 by welee            ###   ########.fr       */
+/*   Updated: 2024/09/18 15:12:43 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,10 @@
 #include "ft_printf.h"
 #include <stdio.h>
 
+/**
+ * @brief Print the map.
+ * @param map The map structure.
+ */
 void	print_map(t_map *map)
 {
 	int	y;

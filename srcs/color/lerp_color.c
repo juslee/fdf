@@ -6,7 +6,7 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 14:45:35 by welee             #+#    #+#             */
-/*   Updated: 2024/09/02 11:17:08 by welee            ###   ########.fr       */
+/*   Updated: 2024/09/18 15:11:54 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 /**
  * @brief Linearly interpolate between two colors
- *
  * @param c1 The first color
  * @param c2 The second color
  * @param t The interpolation factor
