@@ -6,7 +6,7 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/15 16:14:56 by welee             #+#    #+#             */
-/*   Updated: 2024/09/19 11:52:07 by welee            ###   ########.fr       */
+/*   Updated: 2024/09/19 11:58:28 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,8 @@ void	free_map(t_map *map)
 {
 	int	y;
 
-	if (!map)
+	if (!map || !map->vertices)
 		return ;
-	if (!map->vertices)
-	{
-		free(map);
-		return ;
-	}
 	y = 0;
 	while (y < map->height)
 	{
