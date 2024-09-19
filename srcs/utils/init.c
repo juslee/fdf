@@ -6,7 +6,7 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/15 20:51:34 by welee             #+#    #+#             */
-/*   Updated: 2024/09/18 12:53:48 by welee            ###   ########.fr       */
+/*   Updated: 2024/09/19 11:56:57 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ int	init_fdf(t_fdf *fdf)
 	fdf->map = (t_map *)malloc(sizeof(t_map));
 	if (!fdf->map)
 		return (error_msg("Failed to allocate memory for map", fdf));
+	ft_bzero(fdf->map, sizeof(t_map));
 	return (1);
 }
 
