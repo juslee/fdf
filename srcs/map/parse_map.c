@@ -6,7 +6,7 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 13:37:04 by welee             #+#    #+#             */
-/*   Updated: 2024/09/18 15:12:36 by welee            ###   ########.fr       */
+/*   Updated: 2024/09/19 11:48:41 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,10 +93,10 @@ static int	read_map(char *filename, t_map *map)
 		return (close(fd), error_map("Memory allocation failed", map));
 	y = 0;
 	line = get_next_line(fd);
-	while (line != NULL)
+	while (line)
 	{
 		if (!parse_line(line, y, map))
-			return (free(line), 0);
+			return (free(line), free_map(map), 0);
 		free(line);
 		y++;
 		line = get_next_line(fd);
