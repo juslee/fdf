@@ -6,7 +6,7 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/15 20:51:34 by welee             #+#    #+#             */
-/*   Updated: 2024/09/19 11:56:57 by welee            ###   ########.fr       */
+/*   Updated: 2024/09/19 12:23:36 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,9 @@ int	init_fdf(t_fdf *fdf)
 	fdf->model = mat4_identity();
 	fdf->view = mat4_identity();
 	fdf->projection = mat4_identity();
-	fdf->map = (t_map *)malloc(sizeof(t_map));
-	if (!fdf->map)
-		return (error_msg("Failed to allocate memory for map", fdf));
-	ft_bzero(fdf->map, sizeof(t_map));
+	// fdf->map = (t_map *)malloc(sizeof(t_map));
+	// if (!fdf->map)
+	// 	return (error_msg("Failed to allocate memory for map", fdf));
 	return (1);
 }
 
