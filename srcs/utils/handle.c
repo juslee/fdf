@@ -6,7 +6,7 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/29 13:31:46 by welee             #+#    #+#             */
-/*   Updated: 2024/09/18 12:32:12 by welee            ###   ########.fr       */
+/*   Updated: 2024/09/23 12:42:20 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,22 +94,22 @@ static int	handle_rot(int keycode, t_fdf *fdf)
  */
 void	handle_orthographic(int keycode, t_fdf *fdf)
 {
-	if (keycode == ORTHOGRAPHIC_PROJECTION_TOP)
+	if (keycode == ORTHO_TOP)
 	{
 		fdf->rot = (t_rotation){0, 0, 0};
 		init_orthographic(fdf);
 	}
-	else if (keycode == ORTHOGRAPHIC_PROJECTION_FRONT)
+	else if (keycode == ORTHO_FRONT)
 	{
 		fdf->rot = (t_rotation){-90 * M_PI / 180, 0, 0};
 		init_orthographic(fdf);
 	}
-	else if (keycode == ORTHOGRAPHIC_PROJECTION_RIGHT)
+	else if (keycode == ORTHO_RIGHT)
 	{
 		fdf->rot = (t_rotation){-90 * M_PI / 180, -90 * M_PI / 180, 0};
 		init_orthographic(fdf);
 	}
-	else if (keycode == ISOMETRIC_PROJECTION)
+	else if (keycode == ISO)
 	{
 		fdf->rot = (t_rotation){-90 * M_PI / 180, 0, 0};
 		init_isometric(fdf);

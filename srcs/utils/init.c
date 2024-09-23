@@ -6,7 +6,7 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/15 20:51:34 by welee             #+#    #+#             */
-/*   Updated: 2024/09/19 12:23:36 by welee            ###   ########.fr       */
+/*   Updated: 2024/09/23 12:32:21 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,6 @@ int	init_fdf(t_fdf *fdf)
 	fdf->model = mat4_identity();
 	fdf->view = mat4_identity();
 	fdf->projection = mat4_identity();
-	// fdf->map = (t_map *)malloc(sizeof(t_map));
-	// if (!fdf->map)
-	// 	return (error_msg("Failed to allocate memory for map", fdf));
 	return (1);
 }
 
@@ -95,7 +92,7 @@ int	init_image(t_fdf *fdf)
 int	init_hooks(t_fdf *fdf)
 {
 	mlx_loop_hook(fdf->mlx_ptr, render, fdf);
-	mlx_hook(fdf->win_ptr, ON_DESTROY, 1L<<0, close_window, fdf);
+	mlx_hook(fdf->win_ptr, ON_DESTROY, 1L << 0, close_window, fdf);
 	mlx_key_hook(fdf->win_ptr, handle_keypress, fdf);
 	mlx_loop(fdf->mlx_ptr);
 	return (1);

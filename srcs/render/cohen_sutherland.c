@@ -6,7 +6,7 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/16 23:59:37 by welee             #+#    #+#             */
-/*   Updated: 2024/09/18 12:45:52 by welee            ###   ########.fr       */
+/*   Updated: 2024/09/23 12:31:51 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@
  * @param p The point
  * @param viewport The viewport
  * @return int The region code
- * @note The region code is a 4-bit code that represents the position of the point
- * with respect to the viewport.
+ * @note The region code is a 4-bit code that represents the position of the
+ * point with respect to the viewport.
  */
 static int	compute_region_code(t_vec2i p, t_viewport *viewport)
 {

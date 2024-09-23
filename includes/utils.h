@@ -6,7 +6,7 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 13:43:11 by welee             #+#    #+#             */
-/*   Updated: 2024/09/18 12:40:53 by welee            ###   ########.fr       */
+/*   Updated: 2024/09/23 12:45:07 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,29 @@
 
 # define KEYS_IMAGE "./assets/keys.xpm"
 
-enum {
+enum e_keycode
+{
+	KEY_ESC = 65307,
+	KEY_PLUS = 61,
+	KEY_MINUS = 45,
+	KEY_LEFT = 65361,
+	KEY_UP = 65362,
+	KEY_RIGHT = 65363,
+	KEY_DOWN = 65364,
+	KEY_W = 119,
+	KEY_S = 115,
+	KEY_A = 97,
+	KEY_D = 100,
+	KEY_Q = 113,
+	KEY_E = 101,
+	ORTHO_TOP = 116,
+	ORTHO_FRONT = 102,
+	ORTHO_RIGHT = 114,
+	ISO = 105
+};
+
+enum e_event
+{
 	ON_KEYDOWN = 2,
 	ON_KEYUP = 3,
 	ON_MOUSEDOWN = 4,
@@ -28,24 +50,6 @@ enum {
 	ON_EXPOSE = 12,
 	ON_DESTROY = 17
 };
-
-# define KEY_ESC 65307 // esc
-# define KEY_PLUS 61 // =
-# define KEY_MINUS 45 // -
-# define KEY_LEFT 65361 // left
-# define KEY_UP 65362 // up
-# define KEY_RIGHT 65363 // right
-# define KEY_DOWN 65364 // down
-# define KEY_W 119 // w
-# define KEY_S 115 // s
-# define KEY_A 97 // a
-# define KEY_D 100 // d
-# define KEY_Q 113 // q
-# define KEY_E 101 // e
-# define ORTHOGRAPHIC_PROJECTION_TOP 116 // t
-# define ORTHOGRAPHIC_PROJECTION_FRONT 102 // f
-# define ORTHOGRAPHIC_PROJECTION_RIGHT 114 // r
-# define ISOMETRIC_PROJECTION 105 // i
 
 // Handle Key Press
 int		handle_keypress(int keycode, t_fdf *fdf);

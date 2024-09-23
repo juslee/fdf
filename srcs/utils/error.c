@@ -6,7 +6,7 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/15 14:49:03 by welee             #+#    #+#             */
-/*   Updated: 2024/09/19 12:52:12 by welee            ###   ########.fr       */
+/*   Updated: 2024/09/23 12:30:12 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ int	error_file(char *filename, t_map *map)
 {
 	(void)map;
 	ft_printf("No file %s\n", filename);
-	// free_map(map);
 	return (0);
 }
 
@@ -51,7 +50,6 @@ int	error_map(char *message, t_map *map)
 {
 	(void)map;
 	ft_printf("%s\n", message);
-	// free_map(map);
 	return (0);
 }
 
