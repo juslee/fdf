@@ -6,7 +6,7 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 15:22:37 by welee             #+#    #+#             */
-/*   Updated: 2024/09/15 23:50:59 by welee            ###   ########.fr       */
+/*   Updated: 2024/09/23 12:48:28 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@
 // Define the t_color structure
 typedef struct s_color
 {
-	int	r; // Red component (0-255)
-	int	g; // Green component (0-255)
-	int	b; // Blue component (0-255)
-	int	a; // Alpha component (0 = fully transparent, 255 = fully opaque)
+	int	r;
+	int	g;
+	int	b;
+	int	a;
 }	t_color;
 
 // Function to convert a hex string (e.g., "0xFF5733") to a t_color
