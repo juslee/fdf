@@ -6,7 +6,7 @@
 #    By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/01 14:31:18 by welee             #+#    #+#              #
-#    Updated: 2024/09/18 16:48:55 by welee            ###   ########.fr        #
+#    Updated: 2024/09/23 11:21:55 by welee            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,6 +30,7 @@ DIST_DIR = dist
 LIBS_DIR = libs
 BINS_DIR = bin
 DOCS_DIR = docs
+ASTS_DIR = assets
 # ---------------------------------------------------------------------------- #
 
 # Library Variables ---------------------------------------------------------- #
@@ -146,7 +147,7 @@ doxygen:
 
 dist: fclean
 	$(MKDIR) $(DIST_DIR)
-	$(CP) $(SRCS_DIR) $(INCS_DIR) $(LIBS_DIR) $(DIST_DIR)
+	$(CP) $(SRCS_DIR) $(INCS_DIR) $(LIBS_DIR) $(TEST_DIR) $(ASTS_DIR) $(DIST_DIR)
 	$(CP) Makefile $(DIST_DIR)
 	$(SED) 's|^NAME = $$(BINS_DIR)/fdf$$|NAME = fdf|' $(DIST_DIR)/Makefile
 	$(SED) '/^\$$(NAME):/ s/ | $$(BINS_DIR)//' $(DIST_DIR)/Makefile
