@@ -6,7 +6,7 @@
 /*   By: welee <welee@student.42singapore.sg>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 16:54:52 by welee             #+#    #+#             */
-/*   Updated: 2024/09/19 12:24:32 by welee            ###   ########.fr       */
+/*   Updated: 2024/09/23 13:36:52 by welee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ int	main(int argc, char **argv)
 	t_fdf	fdf;
 	t_map	map;
 
+	fdf = (t_fdf){0};
+	map = (t_map){0};
 	if (argc < 2 || argc > 4)
 		return (error_args(argv[0], &fdf));
 	if (!init_fdf(&fdf))
